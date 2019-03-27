@@ -85,14 +85,14 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                 <textarea id="auto" onfocus="aoClicarOb()" onblur="aoSairOb()" class="form-control" name="auto" rows="1" data-length="120" placeholder="A 00000000 TE0000000 R 00000000" style="text-transform: uppercase" ></textarea>
             </div>
             <!-- CAMPO DOS FATOS -->
-            <div class="form-group col-md-12">
+            <div class="form-row col-md-12">
                 <label for="obs">Dos Fatos</label>
-                <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="fato" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea>
+                <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="fato" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea><a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a>
             </div>
             <!-- CAMPO DO MERITO -->
             <div class="form-group col-md-12">
                 <label for="obs">Dos Mérito</label>
-                <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
+                <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea><a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a>
             </div>
             <!-- CAMPO OPERADOR -->
             <div class="form-group col-md-4">
@@ -103,8 +103,6 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
             <p class="col-12"></p>
             <div class="">
                 <input id="zer" type="submit" value="Cadastrar" class="btn btn-primary" >
-                <a href="../index.php" class="btn btn-primary">Voltar</a>
-                <a href="../sair.php" class="btn btn-danger">Sair</a>
                 <input type="reset" class="btn btn-primary" value="Limpar">
             </div>
         </div>
