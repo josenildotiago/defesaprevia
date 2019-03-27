@@ -1,20 +1,44 @@
 function aoClicarOb(){
-    $('#obs').attr('rows','3');
+    $('#auto').attr('rows','3');
+}
+
+function aoClicarOb2(){
+    $('#fato').attr('rows','3');
+}
+
+function aoClicarOb3(){
+    $('#merito').attr('rows','3');
 }
 
 function aoSairOb(){
-    $('#obs').attr('rows','1');
+    $('#auto').attr('rows','1');
+}
+
+function aoSairOb2(){
+    $('#fato').attr('rows','1');
+}
+
+function aoSairOb3(){
+    $('#merito').attr('rows','1');
 }
 
 $(document).ready(function(){
 
 });
+
+//MASCARAS
 $(function(){
     $("#data").mask("00/00/0000")
     $("#placa").mask("AAA-0000")
     $("#cpf").mask("000.000.000-00")
+    $("#ano_fab").mask("0000")
+    $("#processo").mask("0000/0000")
 });
 
+//PROCESSO
+
+
+//CORREIOS
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('rua').value=("");
