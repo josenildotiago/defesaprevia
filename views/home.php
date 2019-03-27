@@ -17,19 +17,46 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                 <input type="text" class="form-control" name="processo" id="processo" required placeholder="0000/0000" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO REQUERENTE -->
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-7">
                 <label for="nome">Requerente</label>
                 <input type="text" class="form-control" name="nome" size="74" maxlength="70" required autofocus placeholder="Nome Completo" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO DATA -->
             <div class="form-group col-md-2">
-                <label for="nacimento">Placa</label>
-                <input type="text" class="form-control" name="nacimento" id="data" size="7" maxlength="14" required placeholder="AAA-0000" style="text-transform: uppercase" >
+                <label for="placa">Placa</label>
+                <input type="text" class="form-control" name="placa" id="placa" size="7" maxlength="14" required placeholder="AAA-0000" style="text-transform: uppercase" >
             </div>
-            <!-- CAMPO CPF -->
-            <div class="form-group col-md-2">
-                <label for="cpf">CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" required placeholder="000.000.000-00" style="text-transform: uppercase" >
+            <!-- CAMPO UF -->
+            <div class="form-group col-md-1">
+                <label for="uf">UF</label>
+                <select class="custom-select" name="uf" id="uf" style="text-transform: uppercase">
+                    <option value="RN">RN</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
             </div>
             <!-- CAMPO CEP -->
             <div class="form-group col-md-2">
@@ -69,7 +96,7 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
             <!-- CAMPO OPERADOR -->
             <div class="form-group col-md-4">
                 <label for="usuario">Operador</label>
-                <input type="text" class="form-control" value="" name="usuario" id="usuario" size="100" maxlength="100" required placeholder="Operador" style="text-transform: uppercase" value="<?php echo $_SESSION['nome'];?>" readonly="readonly" >
+                <input type="text" class="form-control" value="" name="usuario" id="usuario" size="100" maxlength="100" required placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" >
             </div>
             <!-- CAMPO DATA NASCIMENTO -->
             <div class="form-group col-md-2">
