@@ -3,13 +3,16 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
     
 } else {
     header("Location: ".BASE_URL."login");
+    exit;
 }
 ?>
 
-<div class="container theme-showcase" role="main" >
+<div class="container">
 <?php if(isset($_SESSION['msg'])){ echo $_SESSION['msg']; unset($_SESSION['msg']); } ?>
     <p>&nbsp;</p>
-    <div class="page-header"><h3>Cadastrando Registros</h3></div>
+    <div class="page-header">
+        <h3>Cadastrando Registros</h3>
+    </div>
     <form action="<?php echo BASE_URL; ?>contatos/add_save" method="POST">
         <div class="form-row">
             <!-- CAMPO PROCESSO -->
@@ -87,12 +90,14 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
             <!-- CAMPO DOS FATOS -->
             <div class="form-row col-md-12">
                 <label for="obs">Dos Fatos</label>
-                <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="fato" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea><a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a>
+                <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="fato" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea>
+                <!-- <a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a> -->
             </div>
             <!-- CAMPO DO MERITO -->
             <div class="form-group col-md-12">
                 <label for="obs">Dos Mérito</label>
-                <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea><a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a>
+                <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
+                <!-- <a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a> -->
             </div>
             <!-- CAMPO OPERADOR -->
             <div class="form-group col-md-4">
