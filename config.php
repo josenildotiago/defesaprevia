@@ -3,7 +3,7 @@ require 'environment.php';
 
 $config = array();
 if(ENVIRONMENT == 'development') {
-	define("BASE_URL", "http://localhost/defesaprevia2/");
+	define("BASE_URL", "http://localhost/defesaprevia/");
 	$config['dbname'] = 'getranmc_cadastro_estacionamento';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
