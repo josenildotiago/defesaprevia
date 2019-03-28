@@ -100,8 +100,7 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                 <input type="text" class="form-control" value="" name="usuario" id="usuario" size="100" maxlength="100" required placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" >
             </div>
             <!-- BOTÕES -->
-            <p class="col-12"></p>
-            <div class="">
+            <div class="form-group col">
                 <input id="zer" type="submit" value="Cadastrar" class="btn btn-primary" >
                 <input type="reset" class="btn btn-primary" value="Limpar">
             </div>
