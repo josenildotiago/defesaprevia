@@ -62,47 +62,47 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                     <option value="TO">TO</option>
                 </select>
             </div>
-            <!-- CAMPO BAIRRO -->
+            <!-- CAMPO MODELO VEICULO -->
             <div class="form-group col-md-4">
-                <label for="bairro">Modelo Veículo</label>
-                <input type="text" class="form-control" name="	veiculo_modelo" id="	veiculo_modelo" placeholder="Modelo Veículo" style="text-transform: uppercase"  >
+                <label for="vaiculo_modelo">Modelo Veículo</label>
+                <input type="text" class="form-control" name="	veiculo_modelo" id="	veiculo_modelo" placeholder="Modelo Veículo" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO COR -->
             <div class="form-group col-md-4">
                 <label for="cor">Cor</label>
-                <input type="text" class="form-control" name="cor" id="cor" required placeholder="Cor do Veículo" style="text-transform: uppercase" onblur="pesquisacep(this.value);" >
+                <input type="text" class="form-control" name="cor" id="cor" required placeholder="Cor do Veículo" style="text-transform: uppercase" />
             </div>
-            <!-- CAMPO LOGRADOURO -->
+            <!-- CAMPO ANO DE FABRICAÇÃO -->
             <div class="form-group col-md-1">
-                <label for="rua">Ano Fab.</label>
-                <input type="number" class="form-control" maxlength="4" name="ano_fab" id="ano_fab" required placeholder="1999" style="text-transform: uppercase"  >
+                <label for="ano_fab">Ano Fab.</label>
+                <input type="number" class="form-control" maxlength="4" name="ano_fab" id="ano_fab" required placeholder="1999" style="text-transform: uppercase" />
             </div>
-            <!-- CAMPO N° -->
+            <!-- CAMPO ARTIGO -->
             <div class="form-group col-md-3">
-                <label for="numero">Artigo</label>
-                <input type="text" class="form-control" name="artigo" id="artigo" required placeholder="N°" maxlength="10" style="text-transform: uppercase" >
+                <label for="artigo">Artigo</label>
+                <input type="text" class="form-control" name="artigo" id="artigo" required placeholder="N°" maxlength="10" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO AUTOS -->
             <div class="form-group col-md-12">
-                <label for="obs">Autos de Infrações</label>
+                <label for="auto">Autos de Infrações</label>
                 <textarea id="auto" onfocus="aoClicarOb()" onblur="aoSairOb()" class="form-control" name="auto" rows="1" data-length="120" placeholder="A 00000000 TE0000000 R 00000000" style="text-transform: uppercase" ></textarea>
             </div>
             <!-- CAMPO DOS FATOS -->
             <div class="form-row col-md-12">
-                <label for="obs">Dos Fatos</label>
+                <label for="fato">Dos Fatos</label>
                 <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="fato" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea>
-                <!-- <a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a> -->
+                <a href="" class="btn-sm btn-outline-success">Buscar Padrões</a>
             </div>
             <!-- CAMPO DO MERITO -->
             <div class="form-group col-md-12">
-                <label for="obs">Dos Mérito</label>
+                <label for="merito">Dos Mérito</label>
                 <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
-                <!-- <a href="" class="btn-sm btn-outline-success mb-2">Buscar Padrões</a> -->
+                <a href="" class="btn-sm btn-outline-success">Buscar Padrões</a>
             </div>
             <!-- CAMPO OPERADOR -->
             <div class="form-group col-md-4">
                 <label for="usuario">Operador</label>
-                <input type="text" class="form-control" value="" name="usuario" id="usuario" size="100" maxlength="100" required placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" >
+                <input type="text" class="form-control" value="" name="usuario" id="usuario" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
             </div>
             <!-- BOTÕES -->
             <p class="col-12"></p>
