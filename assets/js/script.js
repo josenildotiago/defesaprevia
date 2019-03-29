@@ -10,6 +10,10 @@ function aoClicarOb3(){
     $('#merito').attr('rows','3');
 }
 
+function aoClicarOb4(){
+    $('#penalidade').attr('rows','3');
+}
+
 function aoSairOb(){
     $('#auto').attr('rows','1');
 }
@@ -20,6 +24,10 @@ function aoSairOb2(){
 
 function aoSairOb3(){
     $('#merito').attr('rows','1');
+}
+
+function aoSairOb4(){
+    $('#penalidade').attr('rows','1');
 }
 
 $(document).ready(function(){

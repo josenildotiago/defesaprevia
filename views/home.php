@@ -84,6 +84,11 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
             </div>
             <!-- CAMPO AUTOS -->
             <div class="form-group col-md-12">
+                <label for="penalidade">Penalidade</label>
+                <textarea id="penalidade" onfocus="aoClicarOb4()" onblur="aoSairOb4()" class="form-control" name="penalidade" rows="1" data-length="120" placeholder="Artigo 169" style="text-transform: uppercase" ></textarea>
+            </div>
+            <!-- CAMPO AUTOS -->
+            <div class="form-group col-md-12">
                 <label for="auto">Autos de Infrações</label>
                 <textarea id="auto" onfocus="aoClicarOb()" onblur="aoSairOb()" class="form-control" name="auto" rows="1" data-length="120" placeholder="A 00000000 TE0000000 R 00000000" style="text-transform: uppercase" ></textarea>
             </div>
