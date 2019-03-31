@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/bootstrap.min.css" />
     <!-- <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/signin.css" /> -->
-    <!-- <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/font-awesome.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>font/css/all.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/style.css" />
     <title>Defesa Prévia</title>
 </head>
