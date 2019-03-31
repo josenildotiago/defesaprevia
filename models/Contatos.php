@@ -17,7 +17,7 @@ class Contatos extends model {
 	public function get($id) {
 		$array = array();
 
-		$sql = "SELECT * FROM contatos WHERE id = :id";
+		$sql = "SELECT * FROM usuarios WHERE id = :id";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(':id', $id);
 		$sql->execute();

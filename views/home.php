@@ -13,17 +13,22 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
     <div class="page-header">
         <h3>Cadastrando Registros</h3>
     </div>
+    <?php
+    $id = $_SESSION['login'];
+    $a = new Contatos();
+    $logado = $a->get($id);
+    ?>
     <form action="<?php echo BASE_URL; ?>contatos/add_save" method="POST">
         <div class="form-row">
             <!-- CAMPO PROCESSO -->
             <div class="form-group col-md-2">
                 <label for="processo">Processo</label>
-                <input type="text" class="form-control" name="processo" id="processo" required placeholder="0000/0000" style="text-transform: uppercase" >
+                <input type="text" class="form-control" name="processo" id="processo" required autofocus placeholder="0000/0000" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO REQUERENTE -->
             <div class="form-group col-md-7">
                 <label for="nome">Requerente</label>
-                <input type="text" class="form-control" name="nome" size="74" maxlength="70" required autofocus placeholder="Nome Completo" style="text-transform: uppercase" >
+                <input type="text" class="form-control" name="nome" size="74" maxlength="70" required  placeholder="Nome Completo" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO DATA -->
             <div class="form-group col-md-2">
@@ -63,7 +68,7 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                 </select>
             </div>
             <!-- CAMPO MODELO VEICULO -->
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-7">
                 <label for="vaiculo_modelo">Modelo Veículo</label>
                 <input type="text" class="form-control" name="	veiculo_modelo" id="	veiculo_modelo" placeholder="Modelo Veículo" style="text-transform: uppercase" />
             </div>
@@ -78,9 +83,14 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                 <input type="number" class="form-control" maxlength="4" name="ano_fab" id="ano_fab" required placeholder="1999" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO ARTIGO -->
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-8">
                 <label for="artigo">Artigo</label>
                 <input type="text" class="form-control" name="artigo" id="artigo" required placeholder="N°" maxlength="10" style="text-transform: uppercase" />
+            </div>
+            <!-- CAMPO OPERADOR -->
+            <div class="form-group col-md-4">
+                <label for="usuario">Operador</label>
+                <input type="text" class="form-control" value="<?php echo $logado['nome']; ?>" name="usuario" id="usuario" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
             </div>
             <!-- CAMPO AUTOS -->
             <div class="form-group col-md-12">
@@ -103,11 +113,6 @@ if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
                 <label for="merito">Dos Mérito</label>
                 <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
                 <a href="" class="btn-sm btn-outline-success">Buscar Padrões</a>
-            </div>
-            <!-- CAMPO OPERADOR -->
-            <div class="form-group col-md-4">
-                <label for="usuario">Operador</label>
-                <input type="text" class="form-control" value="" name="usuario" id="usuario" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
             </div>
             <!-- BOTÕES -->
             <p class="col-12"></p>
