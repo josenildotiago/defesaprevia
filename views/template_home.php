@@ -7,9 +7,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu Consulta</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>processosOrdem"><i class="fas fa-address-card"></i>Listar Todos Processos Por Ordem</a>
-                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarNome">Buscar Por Nome</a>
-                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarProcesso">Buscar Por Processo</a>
+                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>processosOrdem"><i class="fas fa-list-ol"></i> Listar Todos Processos Por Ordem</a>
+                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarNome"><i class="fas fa-address-card"></i> Buscar Por Nome</a>
+                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarProcesso"><i class="fas fa-folder-plus"></i> Buscar Por Processo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>">Voltar</a>
