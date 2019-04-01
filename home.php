@@ -2,11 +2,7 @@
 if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
     
 } else {
-?>
-    <script language= "JavaScript">
-        location.href="http://localhost/defesaprevia/login";
-    </script>
-<?php
+    header("Location: ".BASE_URL."login");
     exit;
 }
 ?>
