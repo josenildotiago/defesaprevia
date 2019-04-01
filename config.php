@@ -13,7 +13,7 @@ if(ENVIRONMENT == 'development') {
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
 	PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
 } else {
-	define("BASE_URL", "http://meusite.com.br/");
+	define("BASE_URL", "http://meusite.com.br/defesaprevia/");
 	$host = "localhost";
 	$user = "root";
 	$pass = "";
