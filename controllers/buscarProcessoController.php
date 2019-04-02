@@ -5,10 +5,9 @@ class buscarProcessoController extends controller {
 		$dados = array();
 		//$this->loadTemplate('buscarProcesso', $dados);
 		if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
-			
+			$this->loadTemplate('buscarProcesso', $dados);
 		} else {
 			$this->loadTemplate('login', $dados);
 		}
-		$this->loadTemplate('buscarProcesso', $dados);
 	}
 }
