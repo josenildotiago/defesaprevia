@@ -1,16 +1,3 @@
-<?php
-if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
-    
-} else {
-?>
-    <script language= "JavaScript">
-        location.href="http://localhost/defesaprevia/login";
-    </script>
-<?php
-    exit;
-}
-?>
-
 <div class="container">
 <?php if(isset($_SESSION['msg'])){ echo $_SESSION['msg']; unset($_SESSION['msg']); } ?>
     <p>&nbsp;</p>
