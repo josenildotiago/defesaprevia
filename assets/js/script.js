@@ -10,6 +10,10 @@ function aoClicarOb3(){
     $('#merito').attr('rows','3');
 }
 
+function aoClicarOb5(){
+    $('#decisao').attr('rows','3');
+}
+
 function aoClicarOb4(){
     $('#penalidade').attr('rows','3');
 }
@@ -30,6 +34,10 @@ function aoSairOb4(){
     $('#penalidade').attr('rows','1');
 }
 
+function aoSairOb5(){
+    $('#decisao').attr('rows','1');
+}
+
 $(document).ready(function(){
 
 });
@@ -43,7 +51,30 @@ $(function(){
     $("#processo").mask("0000/0000")
 });
 
-//PROCESSO
+
+//MODAL
+function editar(){
+    //$('#modal').modal('show');
+    var der = $("input[name=artigo]").val();
+    if ($("input[name=artigo]").val()=='') {
+        der = "Nenhum artigo selecionado.";
+    }
+    $.ajax({
+        url:'http://localhost/defesaprevia/views/modal/dos_fatos.php',
+        type:'POST',
+        data:{der:der},
+        beforeSend:function(){
+            $('#modal').find('.modal-body').html('carregando...');
+            $('#modal').modal('show');
+        },
+        success:function(html){
+            $('#modal').find('.modal-body').html(html);
+            $('#modal').modal('show');
+        }
+    });
+    //alert(der);
+}
+
 
 
 //CORREIOS

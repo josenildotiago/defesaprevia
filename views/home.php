@@ -59,7 +59,7 @@
                 </select>
             </div>
             <!-- CAMPO MODELO VEICULO -->
-            <div class="form-group col-md-7">
+            <div class="form-group col-md-5">
                 <label for="vaiculo_modelo">Modelo Veículo</label>
                 <input type="text" class="form-control" name="	veiculo_modelo" id="	veiculo_modelo" placeholder="Modelo Veículo" style="text-transform: uppercase" />
             </div>
@@ -74,14 +74,9 @@
                 <input type="number" class="form-control" maxlength="4" name="ano_fab" id="ano_fab" required placeholder="1999" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO ARTIGO -->
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-2">
                 <label for="artigo">Artigo</label>
-                <input type="text" class="form-control" name="artigo" id="artigo" required placeholder="Art. 195" maxlength="10" style="text-transform: uppercase" />
-            </div>
-            <!-- CAMPO OPERADOR -->
-            <div class="form-group col-md-4">
-                <label for="usuario">Operador</label>
-                <input type="text" class="form-control" value="<?php echo $logado['nome']; ?>" name="usuario" id="usuario" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
+                <input type="text" class="form-control" name="artigo" id="artigo" required placeholder="Art. 195" maxlength="20" />
             </div>
             <!-- CAMPO AUTOS -->
             <div class="form-group col-md-12">
@@ -97,13 +92,34 @@
             <div class="form-row col-md-12">
                 <label for="fato">Dos Fatos</label>
                 <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="fato" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea>
-                <a href="" class="btn-sm btn-outline-success">Buscar Padrões</a>
+                <a href="javascript:;" onclick="editar()" class="btn-sm btn-outline-success">Buscar Padrões</a>
             </div>
             <!-- CAMPO DO MERITO -->
             <div class="form-group col-md-12">
                 <label for="merito">Dos Mérito</label>
                 <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
-                <a href="" class="btn-sm btn-outline-success">Buscar Padrões</a>
+                <a href="javascript:;" onclick="editar()" class="btn-sm btn-outline-success">Buscar Padrões</a>
+            </div>
+            <!-- CAMPO OPERADOR -->
+            <div class="form-group col-md-4">
+                <label for="usuario">Operador</label>
+                <input type="text" class="form-control" value="<?php echo $logado['nome']; ?>" name="usuario" id="usuario" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
+            </div>
+            <!-- CAMPO DO DECISÃO -->
+            <div class="form-group col-md-12">
+                <label for="">Status</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label" for="exampleRadios1"><h5>
+                    Deferido 
+                </h5></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2"><h5>
+                    Indeferido
+                </h5></label>
             </div>
             <!-- BOTÕES -->
             <p class="col-12"></p>
@@ -113,4 +129,11 @@
             </div>
         </div>
     </form>
+    <div id="modal" class="modal fade" role="dialog" >
+        <div class="modal-dialog" >
+            <div class="modal-content" >
+                <div class="modal-body" ></div>
+            </div>
+        </div>
+    </div>
 </div>
