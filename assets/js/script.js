@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 //MASCARAS
 $(function(){
-    $("#data").mask("00/00/0000")
+    $("#artigo").mask("SSS. 000 A")
     $("#placa").mask("SSS-0A00")
     $("#cpf").mask("000.000.000-00")
     $("#ano_fab").mask("0000")
