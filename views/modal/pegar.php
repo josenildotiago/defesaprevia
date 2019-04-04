@@ -13,24 +13,17 @@ try{
 catch(PDOException $e){
     echo "ERRO AO CONECTAR AO BANCO, CAUSA: ". $e->getMessage();
 }
+$dado = array();
 $artigo = addslashes($_POST['artigo']);
-
-$sql = "SELECT texto_desc FROM infracoes WHERE artigo = :artigo";
+$sql = "SELECT * FROM infracoes WHERE artigo = :artigo";
 $sql = $pdo->prepare($sql);
 $sql->bindValue(":artigo", $artigo);
 $sql->execute();
-    if($sql->rowCount() > 0) {
-        $dado = $sql->fetch();
-    ?>
-        <div><p><?php echo $dado['texto_desc']; ?></p>
-            <div>
-                <button class="btn btn-primary">Pegar</button>
-            </div>
-        </div>
-    <?php
-    } else {
-    ?>
-        <div><p>Nenhum Padrão Encontrado</p></div>
-    <?php
-    }
-    ?>
+if ($sql->rowCount() > 0) {
+    $dado = $sql->fetch();
+    //echo $dado['decricao'];
+    echo json_encode($dado);
+
+}else{
+    echo "Nada Encontrado";
+}

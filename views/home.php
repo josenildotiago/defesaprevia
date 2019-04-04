@@ -58,6 +58,26 @@
                     <option value="TO">TO</option>
                 </select>
             </div>
+            <!-- CAMPO AUTOS -->
+            <div class="form-group col-md-9">
+                <label for="auto">Autos de Infrações</label>
+                <textarea id="auto" onfocus="aoClicarOb()" onblur="aoSairOb()" class="form-control" name="auto" rows="1" data-length="120" placeholder="A 00000000 TE0000000 R 00000000" style="text-transform: uppercase" ></textarea>
+            </div>
+            <!-- CAMPO ARTIGO -->
+            <div class="form-group col-md-2">
+                <label for="artigo">Artigo</label>
+                <input type="text" onblur="pegarPorJson()" class="form-control" name="artigo" id="artigo" required placeholder="Art. 195" maxlength="20" />
+            </div>
+            <!-- CAMPO CODIGO INFRAÇÃO -->
+            <div class="form-group col-md-1">
+                <label for="codigoinfra">Cod. Infra.</label>
+                <input type="text" class="form-control" name="codigoinfra" id="codigoinfra" size="7" maxlength="14" required placeholder="000-0" style="text-transform: uppercase" >
+            </div>
+            <!-- CAMPO PENALIDADE -->
+            <div class="form-group col-md-12">
+                <label for="penalidade">Penalidade</label>
+                <textarea name="penalidade" id="penalidade" onfocus="aoClicarOb4()" onblur="aoSairOb4()" class="form-control" name="penalidade" rows="1" data-length="120" placeholder="Artigo 169" style="text-transform: uppercase" ></textarea>
+            </div>
             <!-- CAMPO MODELO VEICULO -->
             <div class="form-group col-md-5">
                 <label for="vaiculo_modelo">Modelo Veículo</label>
@@ -72,21 +92,6 @@
             <div class="form-group col-md-1">
                 <label for="ano_fab">Ano Fab.</label>
                 <input type="number" class="form-control" maxlength="4" name="ano_fab" id="ano_fab" required placeholder="1999" style="text-transform: uppercase" />
-            </div>
-            <!-- CAMPO ARTIGO -->
-            <div class="form-group col-md-2">
-                <label for="artigo">Artigo</label>
-                <input type="text" class="form-control" name="artigo" id="artigo" required placeholder="Art. 195" maxlength="20" />
-            </div>
-            <!-- CAMPO AUTOS -->
-            <div class="form-group col-md-12">
-                <label for="penalidade">Penalidade</label>
-                <textarea id="penalidade" onfocus="aoClicarOb4()" onblur="aoSairOb4()" class="form-control" name="penalidade" rows="1" data-length="120" placeholder="Artigo 169" style="text-transform: uppercase" ></textarea>
-            </div>
-            <!-- CAMPO AUTOS -->
-            <div class="form-group col-md-12">
-                <label for="auto">Autos de Infrações</label>
-                <textarea id="auto" onfocus="aoClicarOb()" onblur="aoSairOb()" class="form-control" name="auto" rows="1" data-length="120" placeholder="A 00000000 TE0000000 R 00000000" style="text-transform: uppercase" ></textarea>
             </div>
             <!-- CAMPO DOS FATOS -->
             <div class="form-row col-md-12">
