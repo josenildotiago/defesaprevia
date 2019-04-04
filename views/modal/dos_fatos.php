@@ -15,22 +15,50 @@ catch(PDOException $e){
 }
 $artigo = addslashes($_POST['artigo']);
 
-$sql = "SELECT texto_desc FROM infracoes WHERE artigo = :artigo";
+$sql = "SELECT * FROM infracoes_padrao WHERE artigo = :artigo";
 $sql = $pdo->prepare($sql);
 $sql->bindValue(":artigo", $artigo);
 $sql->execute();
     if($sql->rowCount() > 0) {
-        $dado = $sql->fetch();
+        $dado = $sql->fetchAll();
     ?>
-        <div><p><?php echo $dado['texto_desc']; ?></p>
-            <div>
-                <button class="btn btn-primary">Pegar</button>
-            </div>
+    <?php $i = 1; ?>
+    <?php foreach($dado as $dados): ?>
+<div>
+        <p id="pegardiv-<?php echo $i; ?>" class="ou" ><?php echo $dados['descricao']; ?></p>
+        <div>
+            <button onclick="pegarDiv()" aria-id="pegardiv-<?php echo $i; ?>" id="pegardiv-<?php echo $i; ?>" class="pegar btn btn-primary">Pegar</button>
+        </div>
+        <hr>
+<?php $i++; 
+print_r($i);
+?>
+    <?php endforeach; ?>
+            <form action="http://localhost/defesaprevia/views/modal/inserir.php" method="post">
+                <div class="">
+                    <label for="padrao">Inserir Padrão</label>
+                    <textarea id="padrao"  class="form-control" name="padrao" rows="3" data-length="120" required placeholder="Inserir"></textarea>
+                </div>
+                <div>
+                    <input type="hidden" name="artigo_id" value="<?php echo $artigo; ?>">
+                    <input type="submit" value="Inserir" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
     <?php
     } else {
     ?>
-        <div><p>Nenhum Padrão Encontrado</p></div>
+        <p>Nwnhum Padrão encontrado</p>
+        <form action="http://localhost/defesaprevia/views/modal/inserir.php" method="post">
+                <div class="">
+                    <label for="padrao">Inserir Padrão</label>
+                    <textarea id="padrao"  class="form-control" name="padrao" rows="3" data-length="120" placeholder="Inserir"></textarea>
+                </div>
+                <div>
+                    <input type="hidden" name="artigo_id" value="<?php echo $artigo; ?>">
+                    <input type="submit" value="Inserir" class="btn btn-primary" required />
+                </div>
+            </form>
     <?php
     }
     ?>

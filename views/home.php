@@ -8,6 +8,8 @@
     $id = $_SESSION['login'];
     $a = new Contatos();
     $logado = $a->get($id);
+    $log = $logado['nome'];
+    $log = explode(" ", $log);
     ?>
     <form action="<?php echo BASE_URL; ?>contatos/add_save" method="POST">
         <div class="form-row">
@@ -84,7 +86,7 @@
                 <input type="text" class="form-control" name="	veiculo_modelo" id="	veiculo_modelo" placeholder="Modelo Veículo" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO COR -->
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="cor">Cor</label>
                 <input type="text" class="form-control" name="cor" id="cor" required placeholder="Cor do Veículo" style="text-transform: uppercase" />
             </div>
@@ -92,6 +94,11 @@
             <div class="form-group col-md-1">
                 <label for="ano_fab">Ano Fab.</label>
                 <input type="number" class="form-control" maxlength="4" name="ano_fab" id="ano_fab" required placeholder="1999" style="text-transform: uppercase" />
+            </div>
+            <!-- CAMPO OPERADOR -->
+            <div class="form-group col-md-3">
+                <label for="operador">Operador</label>
+                <input type="text" class="form-control" value="<?php echo $log[0]; ?>" name="operador" id="operador" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
             </div>
             <!-- CAMPO DOS FATOS -->
             <div class="form-row col-md-12">
@@ -104,11 +111,6 @@
                 <label for="merito">Dos Mérito</label>
                 <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
                 <a href="javascript:;" onclick="editar()" class="btn-sm btn-outline-success">Buscar Padrões</a>
-            </div>
-            <!-- CAMPO OPERADOR -->
-            <div class="form-group col-md-4">
-                <label for="usuario">Operador</label>
-                <input type="text" class="form-control" value="<?php echo $logado['nome']; ?>" name="usuario" id="usuario" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
             </div>
             <!-- CAMPO DO DECISÃO -->
             <div class="form-group col-md-12">

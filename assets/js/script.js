@@ -107,3 +107,17 @@ function pegarPorJson(){
         }
     });
 }
+
+//PEGAR DIV
+function pegarDiv(){
+    //var ths = $(this);
+    //var ariaId = ths.attr('aria-id');
+    var peg = $('.pegar').attr('aria-id');
+    //var ariaId = $('.pegard').attr('id');
+    //var valorDaDiv = $("#" + ariaId).text();
+    var valorDaDiv = $("#" + peg).text();
+    console.log(valorDaDiv);
+    $("#fato").val(valorDaDiv);
+    $('#modal').modal('hide');
+    $('#fato').attr('rows','3');
+}
