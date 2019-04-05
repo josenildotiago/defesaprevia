@@ -11,7 +11,7 @@
     $log = $logado['nome'];
     $log = explode(" ", $log);
     ?>
-    <form action="<?php echo BASE_URL; ?>contatos/add_save" method="POST">
+    <form action="<?php echo BASE_URL; ?>home/add_save" method="POST" >
         <div class="form-row">
             <!-- CAMPO PROCESSO -->
             <div class="form-group col-md-2">
@@ -19,9 +19,9 @@
                 <input type="text" class="form-control" name="processo" id="processo" required autofocus placeholder="0000/0000" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO REQUERENTE -->
-            <div class="form-group col-md-7">
+            <div class="form-group col-md-6">
                 <label for="nome">Requerente</label>
-                <input type="text" class="form-control" name="nome" size="74" maxlength="70" required  placeholder="Nome Completo" style="text-transform: uppercase" >
+                <input type="text" class="form-control" name="requerente" size="74" maxlength="70" required  placeholder="Nome Completo" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO DATA -->
             <div class="form-group col-md-2">
@@ -60,30 +60,20 @@
                     <option value="TO">TO</option>
                 </select>
             </div>
-            <!-- CAMPO AUTOS -->
-            <div class="form-group col-md-9">
-                <label for="auto">Autos de Infrações</label>
-                <textarea id="auto" onfocus="aoClicarOb()" onblur="aoSairOb()" class="form-control" name="auto" rows="1" data-length="120" placeholder="A 00000000 TE0000000 R 00000000" style="text-transform: uppercase" ></textarea>
-            </div>
             <!-- CAMPO ARTIGO -->
             <div class="form-group col-md-2">
                 <label for="artigo">Artigo</label>
                 <input type="text" onblur="pegarPorJson()" class="form-control" name="artigo" id="artigo" required placeholder="Art. 195" maxlength="20" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO CODIGO INFRAÇÃO -->
-            <div class="form-group col-md-1">
+            <div class="form-group col-md">
                 <label for="codigoinfra">Cod. Infra.</label>
-                <input type="text" class="form-control" name="codigoinfra" id="codigoinfra" size="7" maxlength="14" required placeholder="000-0" style="text-transform: uppercase" >
-            </div>
-            <!-- CAMPO PENALIDADE -->
-            <div class="form-group col-md-12">
-                <label for="penalidade">Penalidade</label>
-                <textarea name="penalidade" id="penalidade" onfocus="aoClicarOb4()" onblur="aoSairOb4()" class="form-control" name="penalidade" rows="1" data-length="120" placeholder="Artigo 169" style="text-transform: uppercase" ></textarea>
+                <input type="text" class="form-control" name="cod_infra" id="codigoinfra" size="7" maxlength="14" required placeholder="000-0" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO MODELO VEICULO -->
             <div class="form-group col-md-5">
                 <label for="vaiculo_modelo">Modelo Veículo</label>
-                <input type="text" class="form-control" name="	veiculo_modelo" id="	veiculo_modelo" placeholder="Modelo Veículo" style="text-transform: uppercase" />
+                <input type="text" class="form-control" name="veiculo_modelo" id="veiculo_modelo" placeholder="Modelo Veículo" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO COR -->
             <div class="form-group col-md-3">
@@ -100,30 +90,40 @@
                 <label for="operador">Operador</label>
                 <input type="text" class="form-control" value="<?php echo $log[0]; ?>" name="operador" id="operador" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
             </div>
+            <!-- CAMPO AUTOS -->
+            <div class="form-group col-md">
+                <label for="auto">Autos de Infrações</label>
+                <textarea id="auto" onfocus="aoClicarOb()" onblur="aoSairOb()" class="form-control" name="autos" rows="1" data-length="120" placeholder="A 00000000 TE0000000 R 00000000" style="text-transform: uppercase" ></textarea>
+            </div>
+            <!-- CAMPO PENALIDADE -->
+            <div class="form-group col-md-12">
+                <label for="penalidade">Penalidade</label>
+                <textarea name="penalidade" id="penalidade" onfocus="aoClicarOb4()" onblur="aoSairOb4()" class="form-control" name="penalidade" rows="1" data-length="120" placeholder="Artigo 169" style="text-transform: uppercase" ></textarea>
+            </div>
             <!-- CAMPO DOS FATOS -->
             <div class="form-row col-md-12">
                 <label for="fato">Dos Fatos</label>
-                <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="fato" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea>
+                <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="dos_fatos" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea>
                 <a href="javascript:;" onclick="editar()" class="btn-sm btn-outline-success">Buscar Padrões</a>
             </div>
             <!-- CAMPO DO MERITO -->
             <div class="form-group col-md-12">
                 <label for="merito">Dos Mérito</label>
-                <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="merito" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
-                <a href="javascript:;" onclick="editar()" class="btn-sm btn-outline-success">Buscar Padrões</a>
+                <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="dos_meritos" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
+                <a href="javascript:;" onclick="editar2()" class="btn-sm btn-outline-success">Buscar Padrões</a>
             </div>
             <!-- CAMPO DO DECISÃO -->
             <div class="form-group col-md-12">
                 <label for="">Status</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <input class="form-check-input" type="radio" name="estatos" id="exampleRadios1" value="Deferido">
                 <label class="form-check-label" for="exampleRadios1"><h5>
                     Deferido 
                 </h5></label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <input class="form-check-input" type="radio" name="estatos" id="exampleRadios2" value="Indeferido">
                 <label class="form-check-label" for="exampleRadios2"><h5>
                     Indeferido
                 </h5></label>
@@ -143,4 +143,46 @@
             </div>
         </div>
     </div>
+    <div class="progress">
+        <div class="bar" style="width: 60%;"></div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <hr>
+<?php
+$u = new Contatos();
+$lista = $u->getAll();
+?>
+<div class="container-fluid" >
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+            <th scope="col">REQUERENTE</th>
+            <th scope="col">PLACA</th>
+            <th scope="col">VEÍCULO</th>
+            <th scope="col">PARECER</th>
+            <th scope="col">PROCESSO</th>
+            <th scope="col">AUTO(S)</th>
+            <th scope="col">UF</th>
+            <th scope="col">DATA CADASTRO</th>
+            <th scope="col">AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <?php foreach($lista as $item): ?>
+            <td scope="row"><?php echo $item['requerente']; ?></td>
+            <td><?php echo strtoupper($item['placa']); ?></td>
+            <td><?php echo strtoupper($item['veiculo_modelo']); ?></td>
+            <td><?php echo strtoupper($item['estatos']); ?></td>
+            <td><?php echo strtoupper($item['processo']); ?></td>
+            <td><?php echo strtoupper($item['autos']); ?></td>
+            <td><?php echo strtoupper($item['uf']); ?></td>
+            <td><?php echo strtoupper($item['data_entrada']); ?></td>
+            <td><a class="btn btn-primary btn-sm" href="http://localhost/defesaprevia/views/modal/gerar.php?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </div>

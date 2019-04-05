@@ -35,6 +35,8 @@ class contatosController extends controller {
     }
 
     public function add_save() {
+		echo "oi";
+		header("Location: ".BASE_URL);
 		if(!empty($_POST['email'])) {
 			$nome = $_POST['nome'];
 			$email = $_POST['email'];

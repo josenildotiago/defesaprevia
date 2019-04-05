@@ -30,8 +30,7 @@ $sql->execute();
             <button onclick="pegarDiv()" aria-id="pegardiv-<?php echo $i; ?>" id="pegardiv-<?php echo $i; ?>" class="pegar btn btn-primary">Pegar</button>
         </div>
         <hr>
-<?php $i++; 
-print_r($i);
+<?php $i++;
 ?>
     <?php endforeach; ?>
             <form action="http://localhost/defesaprevia/views/modal/inserir.php" method="post">
@@ -48,11 +47,11 @@ print_r($i);
     <?php
     } else {
     ?>
-        <p>Nwnhum Padrão encontrado</p>
+        <p>Nenhum Padrão encontrado</p>
         <form action="http://localhost/defesaprevia/views/modal/inserir.php" method="post">
                 <div class="">
                     <label for="padrao">Inserir Padrão</label>
-                    <textarea id="padrao"  class="form-control" name="padrao" rows="3" data-length="120" placeholder="Inserir"></textarea>
+                    <textarea id="padrao"  class="form-control" name="padrao" rows="3" data-length="120" required placeholder="Inserir"></textarea>
                 </div>
                 <div>
                     <input type="hidden" name="artigo_id" value="<?php echo $artigo; ?>">

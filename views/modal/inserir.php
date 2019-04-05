@@ -31,6 +31,12 @@ $texto = addslashes($_POST['padrao']);
 $artigo_id = addslashes($_POST['artigo_id']);
 
 $sql = "INSERT INTO infracoes_padrao SET artigo = :artigo_id, descricao = :padrao";
+/*$sql = "INSERT INTO defesaprevia SET requerente = :requerente, processo = :processo, 
+                                    penalidade = :penalidade, autos = :autos, 
+                                    veiculo_modelo = :veiculo_modelo, placa = :placa, 
+                                    cor = :cor, ano_fab = :ano_fab, dos_fatos = :dos_fatos, 
+                                    dos_meritos = :dos_meritos, decisao = :decisao, 
+                                    estatos = :estatos";*/
 $sql = $pdo->prepare($sql);
 $sql->bindValue(':artigo_id', $artigo_id);
 $sql->bindValue(':padrao', $texto);
