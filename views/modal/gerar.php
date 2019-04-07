@@ -1,16 +1,16 @@
 <?php
-/* session_start();
-$oficio = addslashes($_POST['oficio']);
-$documento = addslashes($_POST['processo']);
+session_start();
+//$oficio = addslashes($_POST['oficio']);
+//$documento = addslashes($_POST['processo']);
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_TIME,"portuguese");
 $ano = date('Y');
 $dia = date('d');
 //$mes = strftime("%B");
- */
+
 ?>
 <?php
-//ob_start();
+ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -134,10 +134,11 @@ de Tr&acirc;nsito Brasileiro.</font></p>
 </body>
 </html>
 <?php
-/* $html = ob_get_contents();
+$html = ob_get_contents();
 ob_get_clean();
 
-require 'vendor/autoload.php';
+require 'http://localhost/defesaprevia/vendor/autoload.php';
+//require ("http://localhost/defesaprevia/vendor/autoload.php");
 
 $mpdf = new mPDF();
 date_default_timezone_set('America/Sao_Paulo');
@@ -150,4 +151,5 @@ $mpdf->allow_charset_conversion = true;
 $mpdf->charset_in = 'UTF-8';
 $mpdf->SetFooter('{DATE d/m/Y  H:i}||Página {PAGENO}/{nb}');
 $mpdf->WriteHTML($html, 0);
-$mpdf->Output('oficio'.$oficio.'.pdf', 'I'); */
+//$mpdf->Output('oficio'.$oficio.'.pdf', 'I'); 
+$mpdf->Output('oficio'.$oficio.'.pdf', 'I'); 
