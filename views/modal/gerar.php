@@ -1,5 +1,5 @@
 <?php
-session_start();
+/* session_start();
 $oficio = addslashes($_POST['oficio']);
 $documento = addslashes($_POST['processo']);
 date_default_timezone_set('America/Sao_Paulo');
@@ -7,17 +7,18 @@ setlocale(LC_TIME,"portuguese");
 $ano = date('Y');
 $dia = date('d');
 //$mes = strftime("%B");
-
+ */
 ?>
 <?php
-ob_start();
+//ob_start();
 ?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="pt-bt">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
 	<title></title>
+	<meta charset="UTF-8">
 	<meta name="generator" content="LibreOffice 6.1.3.2 (Windows)"/>
 	<meta name="created" content="2019-01-28T09:45:49.906000000"/>
 	<meta name="changed" content="2019-03-22T11:19:13.717000000"/>
@@ -39,8 +40,8 @@ ob_start();
 </head>
 <body lang="pt-BR" text="#000000" link="#000080" vlink="#800000" dir="ltr">
 <div title="header"><p align="center" style="margin-left: 2.25cm; margin-bottom: 0cm; line-height: 100%">
-	<font face="Arial, sans-serif"><font size="5" style="font-size: 20pt"><b>P<img src="OB_htm_5b97cb95b9f35c61.jpg" name="Figura1" align="left" hspace="12" vspace="1" width="76" height="77" border="0"/>
-REFEITURA</b></font></font><font face="Arial, sans-serif"><font size="6" style="font-size: 24pt"><b>
+	<font face="Arial, sans-serif"><font size="5" style="font-size: 20pt"><b><img src="<?php echo BASE_URL; ?>assets/images/brasao6.png" name="Figura1" align="left" hspace="12" vspace="1" width="76" height="77" border="0"/>
+PREFEITURA</b></font></font><font face="Arial, sans-serif"><font size="6" style="font-size: 24pt"><b>
 	M</b></font></font><font face="Arial, sans-serif"><font size="5" style="font-size: 20pt"><b>UNICIPAL</b></font></font><font face="Arial, sans-serif"><font size="6" style="font-size: 22pt"><b>
 	</b></font></font><font face="Arial, sans-serif"><font size="5" style="font-size: 20pt"><b>DE</b></font></font><font face="Arial, sans-serif"><font size="6" style="font-size: 22pt"><b>
 	</b></font></font><font face="Arial, sans-serif"><font size="6" style="font-size: 24pt"><b>M</b></font></font><font face="Arial, sans-serif"><font size="5" style="font-size: 20pt"><b>OSSOR&Oacute;</b></font></font></p>
@@ -133,7 +134,7 @@ de Tr&acirc;nsito Brasileiro.</font></p>
 </body>
 </html>
 <?php
-$html = ob_get_contents();
+/* $html = ob_get_contents();
 ob_get_clean();
 
 require 'vendor/autoload.php';
@@ -149,4 +150,4 @@ $mpdf->allow_charset_conversion = true;
 $mpdf->charset_in = 'UTF-8';
 $mpdf->SetFooter('{DATE d/m/Y  H:i}||Página {PAGENO}/{nb}');
 $mpdf->WriteHTML($html, 0);
-$mpdf->Output('oficio'.$oficio.'.pdf', 'I');
+$mpdf->Output('oficio'.$oficio.'.pdf', 'I'); */
