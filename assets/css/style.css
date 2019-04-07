@@ -7,6 +7,10 @@ body {
 	background-color: #e9e9e9;
 }
 
+#ano_fab, #codigoinfra, #processo{
+	text-align: center;
+}
+
 a {
 	color: #92badd;
 	display:inline-block;
