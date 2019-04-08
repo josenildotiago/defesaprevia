@@ -4,6 +4,18 @@ class Contatos extends model {
 	public function getAll() {
 		$array = array();
 
+		$sql = "SELECT * FROM defesaprevia ORDER BY id DESC LIMIT 5";
+		$sql = $this->db->query($sql);
+
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetchAll();
+		}
+		return $array;
+	}
+
+	public function getAll2() {
+		$array = array();
+
 		$sql = "SELECT * FROM defesaprevia";
 		$sql = $this->db->query($sql);
 
@@ -17,6 +29,21 @@ class Contatos extends model {
 		$array = array();
 
 		$sql = "SELECT * FROM usuarios WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id', $id);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetch();
+		}
+
+		return $array;
+	}
+
+	public function get2($id) {
+		$array = array();
+
+		$sql = "SELECT * FROM defesaprevia WHERE id = :id";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(':id', $id);
 		$sql->execute();
