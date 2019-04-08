@@ -1,14 +1,14 @@
 <?php
-$id = $_GET['id'];
+$id = addslashes($_GET['id']);
 $a = new Contatos();
 $defesa = $a->get2($id);
 
 
 $requerente = strtoupper($defesa['requerente']);
 $processo = $defesa['processo'];
-$penalidade = $defesa['penalidade'];
+$penalidade = strtoupper($defesa['penalidade']);
 $autos = strtoupper($defesa['autos']);
-$artigo = $defesa['artigo'];
+$artigo = strtoupper($defesa['artigo']);
 $cod_infra = $defesa['cod_infra'];
 $veiculo_modelo = strtoupper($defesa['veiculo_modelo']);
 $placa = strtoupper($defesa['placa']);
@@ -20,6 +20,38 @@ $dos_meritos = $defesa['dos_meritos'];
 $decisao = $defesa['decisao'];
 $estatos = strtoupper($defesa['estatos']);
 $data_entrada = $defesa['data_entrada'];
+
+
+$stringL = $artigo." - ";
+$penalidade = explode($stringL, $penalidade);
+
+$penalidade = end($penalidade);
+
+$contar_artigo = explode(" ", $artigo);
+
+/* if (count($contar_artigo)==3) {
+    $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2];
+}
+if (count($contar_artigo)==4) {
+    $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3];
+}  */
+switch (count($contar_artigo)) {
+    case 3:
+    $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2];
+        break;
+
+    case 4:
+    $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3];
+        break;
+    
+    case 5:
+        $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3]." ".$contar_artigo[4];
+        break;
+    
+    case 6:
+        $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3]." ".$contar_artigo[4]." ".$contar_artigo[5];
+        break;
+}
 
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_TIME,"portuguese");
@@ -81,10 +113,10 @@ M</b></font></font><font face="Arial, serif"><font size="5" style="font-size: 20
 		<font face="Arial, sans-serif"><b>DECIS&Atilde;O ADMINISTRATIVA DE DEFESA PR&Eacute;VIA</b></font></p>
 <p class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%"><a name="_GoBack"></a>
 	<font face="Arial, sans-serif">Processo: </font><font face="Arial, sans-serif"><b><?php echo $processo; ?></b></font><br>
-	<font face="Arial, sans-serif">Requerente: </font><font face="Arial, sans-serif"><b><?php echo $requerente; ?></b></font><br>
+	<font face="Arial, sans-serif">Requerente: </font><font face="Arial, sans-serif"><b><?php echo strtoupper(utf8_decode($requerente)); ?></b></font><br>
 	<font face="Arial, sans-serif">N&deg; do Auto da Infra&ccedil;&atilde;o: </font><font face="Arial, sans-serif"><b><?php echo $autos; ?></b></font><br>
 	<font face="Arial, sans-serif">Assunto: </font><font face="Arial, sans-serif"><b>Defesa de autua&ccedil;&atilde;o</b></font><br>
-	<font face="Arial, sans-serif">Penalidade: </font><font face="Arial, sans-serif"><b><?php echo utf8_decode($penalidade); ?></b></font>
+	<font face="Arial, sans-serif">Penalidade: </font><font face="Arial, sans-serif"><b><?php echo ucfirst(strtolower(utf8_decode($penalidade))); ?></b></font>
 </p>
 
 <p class="western" align="justify" style="margin-bottom: 0.28cm; line-height: 150%">
@@ -111,17 +143,33 @@ de infra&ccedil;&atilde;o <?php echo $cod_infra; ?>.</font></p>
 <font face="Arial, sans-serif"><?php echo $dos_meritos; ?>.</font></p>
 <p class="western" align="justify" style="margin-bottom: 0.28cm; line-height: 150%">
 <font face="Arial, sans-serif"><u><b>DECIS&Atilde;O:</b></u></font></p>
-<p class="western" align="justify" style="text-indent: 1.25cm; margin-bottom: 0.28cm; line-height: 150%">
-<font face="Arial, sans-serif">Decido pelo </font><font face="Arial, sans-serif"><b>INDEFERIMENTO
-da</b></font><font face="Arial, sans-serif"> </font><font face="Arial, sans-serif"><b>DEFESA</b></font><font face="Arial, sans-serif">
-e, por conseguinte, pela </font><font face="Arial, sans-serif"><b>PROCED&Ecirc;NCIA
-e SUBSIST&Ecirc;NCIA</b></font><font face="Arial, sans-serif"> do
-</font><font face="Arial, sans-serif"><b>auto </b></font><font face="Arial, sans-serif">e
-determino aplica&ccedil;&atilde;o</font><font face="Arial, sans-serif"><b>
-</b></font><font face="Arial, sans-serif">da pena de multa pela
-infra&ccedil;&atilde;o em quest&atilde;o com base no </font><font face="Arial, sans-serif"><b>Art.
-</b></font><font face="Arial, sans-serif">181&ordm;, XX, do C&oacute;digo
-de Tr&acirc;nsito Brasileiro.</font></p>
+
+<?php if ($estatos == "INDEFERIDO"): ?>
+
+    <p class="western" align="justify" style="text-indent: 1.25cm; margin-bottom: 0.28cm; line-height: 150%">
+    <font face="Arial, sans-serif">Decido pelo </font><font face="Arial, sans-serif"><b>INDEFERIMENTO
+    da</b></font><font face="Arial, sans-serif"> </font><font face="Arial, sans-serif"><b>DEFESA</b></font><font face="Arial, sans-serif">
+    e, por conseguinte, pela </font><font face="Arial, sans-serif"><b>PROCED&Ecirc;NCIA
+    e SUBSIST&Ecirc;NCIA</b></font><font face="Arial, sans-serif"> do
+    </font><font face="Arial, sans-serif"><b>auto </b></font><font face="Arial, sans-serif">e
+    determino aplica&ccedil;&atilde;o</font><font face="Arial, sans-serif"><b>
+    </b></font><font face="Arial, sans-serif">da pena de multa pela
+    infra&ccedil;&atilde;o em quest&atilde;o com base no </font><font face="Arial, sans-serif"><b><?php echo $artigo; ?>, do C&oacute;digo
+    de Tr&acirc;nsito Brasileiro.</font></p>
+
+<?php else: ?>
+
+    <p align="justify" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 150%">
+    <font face="Arial, serif">Decido pelo </font><font face="Arial, serif"><b>DEFERIMENTO
+    da</b></font><font face="Arial, serif"> </font><font face="Arial, serif"><b>DEFESA</b></font><font face="Arial, serif">
+    e, por conseguinte, pela </font><font face="Arial, serif"><b>IMPROCED&Ecirc;NCIA
+    e INSUBSIST&Ecirc;NCIA</b></font><font face="Arial, serif"> do </font><font face="Arial, serif"><b>auto
+    </b></font><font face="Arial, serif">e determino o </font><font face="Arial, serif"><b>arquivamento
+    </b></font><font face="Arial, serif">da pena de multa pela infra&ccedil;&atilde;o
+    em quest&atilde;o com base no </font><font face="Arial, serif"><?php echo $artigo; ?></b></font><font face="Arial, serif"> do CTB.</font></p>
+
+
+<?php endif; ?>
 <p class="western" align="right" style="text-indent: 1.25cm; margin-bottom: 0.28cm; line-height: 150%">
 <font face="Arial, sans-serif">Mossor&oacute;, <?php echo $dia; ?> de <?php echo $mes; ?> de <?php echo $ano; ?>.</font></p>
 <p class="western" align="justify" style="text-indent: 1.25cm; margin-bottom: 0.28cm; line-height: 150%">
