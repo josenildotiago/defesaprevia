@@ -77,6 +77,7 @@ ob_start();
 <html lang="pt-bt">
 <head>
 	<meta charset="UTF-8">
+    <link rel="icon" href="<?php echo BASE_URL; ?>assets/images/favicon.ico">
 	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
 	<title>Defesa de <?php echo utf8_decode($requerente." processo Nº: ".$processo); ?></title>
 	<style type="text/css">

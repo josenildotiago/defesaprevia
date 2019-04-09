@@ -20,7 +20,6 @@ class contatosController extends controller {
 
             $contatos = new Contatos();
             if ($contatos->login($email, $senha)) {
-                print_r($contatos);
                 header("Location: ".BASE_URL);
             } else {
                 header("Location: ".BASE_URL."login");
