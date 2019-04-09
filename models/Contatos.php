@@ -85,22 +85,22 @@ class Contatos extends model {
 									dos_meritos = :dos_meritos, decisao = :decisao, 
 									estatos = :estatos, operador = :operador";
 			$sql = $this->db->prepare($sql);
-			$sql->bindValue(':requerente', $requerente);
+			$sql->bindValue(':requerente', mb_strtoupper($requerente));
 			$sql->bindValue(':processo', $processo);
-			$sql->bindValue(':penalidade', $penalidade);
-			$sql->bindValue(':autos', $autos);
-			$sql->bindValue(':artigo', $artigo);
+			$sql->bindValue(':penalidade', mb_strtoupper($penalidade));
+			$sql->bindValue(':autos', mb_strtoupper($autos));
+			$sql->bindValue(':artigo', mb_strtoupper($artigo));
 			$sql->bindValue(':cod_infra', $cod_infra);
-			$sql->bindValue(':veiculo_modelo', $veiculo_modelo);
-			$sql->bindValue(':placa', $placa);
-			$sql->bindValue(':uf', $uf);
-			$sql->bindValue(':cor', $cor);
+			$sql->bindValue(':veiculo_modelo', mb_strtoupper($veiculo_modelo));
+			$sql->bindValue(':placa', mb_strtoupper($placa));
+			$sql->bindValue(':uf', mb_strtoupper($uf));
+			$sql->bindValue(':cor', mb_strtoupper($cor));
 			$sql->bindValue(':ano_fab', $ano_fab);
-			$sql->bindValue(':dos_fatos', $dos_fatos);
-			$sql->bindValue(':dos_meritos', $dos_meritos);
-			$sql->bindValue(':decisao', $decisao);
-			$sql->bindValue(':estatos', $estatos);
-			$sql->bindValue(':operador', $operador);
+			$sql->bindValue(':dos_fatos', mb_strtoupper($dos_fatos));
+			$sql->bindValue(':dos_meritos', mb_strtoupper($dos_meritos));
+			$sql->bindValue(':decisao', mb_strtoupper($decisao));
+			$sql->bindValue(':estatos', mb_strtoupper($estatos));
+			$sql->bindValue(':operador', mb_strtoupper($operador));
 			$sql->execute();
 			if ($sql->rowCount() > 0 ) {
 				$_SESSION['msg'] = "<div class='alert alert-success text-center' role='alert'>Adicionado com sucesso!

@@ -4,29 +4,34 @@ $a = new Contatos();
 $defesa = $a->get2($id);
 
 
-$requerente = strtoupper($defesa['requerente']);
+$requerente = $defesa['requerente'];
 $processo = $defesa['processo'];
-$penalidade = strtoupper($defesa['penalidade']);
-$autos = strtoupper($defesa['autos']);
-$artigo = strtoupper($defesa['artigo']);
+$penalidade = $defesa['penalidade'];
+$autos = $defesa['autos'];
+$artigo = $defesa['artigo'];
 $cod_infra = $defesa['cod_infra'];
-$veiculo_modelo = strtoupper($defesa['veiculo_modelo']);
-$placa = strtoupper($defesa['placa']);
+$veiculo_modelo = $defesa['veiculo_modelo'];
+$placa = $defesa['placa'];
 $uf = $defesa['uf'];
-$cor = strtoupper($defesa['cor']);
+$cor = $defesa['cor'];
 $ano_fab = $defesa['ano_fab'];
 $dos_fatos = $defesa['dos_fatos'];
 $dos_meritos = $defesa['dos_meritos'];
 $decisao = $defesa['decisao'];
-$estatos = strtoupper($defesa['estatos']);
+$estatos = $defesa['estatos'];
 $data_entrada = $defesa['data_entrada'];
 
 
 $stringL = $artigo." - ";
 $penalidade = explode($stringL, $penalidade);
-
+$artigo_final = $artigo;
 $penalidade = end($penalidade);
 
+//print_r(strlen($penalidade));
+//exit;
+if (strlen($penalidade) > 200) {
+    $penalidade = substr($penalidade,0,200);
+}
 $contar_artigo = explode(" ", $artigo);
 
 /* if (count($contar_artigo)==3) {
@@ -37,17 +42,14 @@ if (count($contar_artigo)==4) {
 }  */
 switch (count($contar_artigo)) {
     case 3:
-    $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2];
+        $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2];
         break;
-
     case 4:
-    $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3];
-        break;
-    
+        $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3];
+        break;  
     case 5:
         $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3]." ".$contar_artigo[4];
         break;
-    
     case 6:
         $artigo = $contar_artigo[0]." ".$contar_artigo[1]." Inciso ".$contar_artigo[2]." alinea ".$contar_artigo[3]." ".$contar_artigo[4]." ".$contar_artigo[5];
         break;
@@ -81,7 +83,7 @@ ob_start();
 		p { margin-bottom: 0.25cm; direction: ltr; line-height: 115%; text-align: left; orphans: 2; widows: 2; background: transparent }
 	</style>
 </head>
-<body lang="pt-BR" link="#000080" vlink="#800000" dir="ltr"><br>
+<body lang="pt-BR" link="#000080" vlink="#800000" dir="ltr">
     <p align="center" style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
         <font face="Arial, serif">
             <font size="6" style="font-size: 24pt">
@@ -103,27 +105,24 @@ M</b></font></font><font face="Arial, serif"><font size="5" style="font-size: 20
     Rua Felipe Camar&atilde;o, 968 &ndash; Doze Anos &ndash; CEP: 59603-340 &ndash; Mossor&oacute;/RN<br/> Fone: (84) 3315-5002 - E-mail: sesp@prefeiturademossoro.com.br
     </font>
     </font>
-    <font face="Arial, serif"><font size="2" style="font-size: 10pt">
-    </font>
-    </font>
-    </p>
-    <p style="margin-bottom: 0.35cm">
-</div>
-	<p class="western" align="center" style="margin-bottom: 0cm; line-height: 150%">
+    <p class="western" align="center" style="margin-bottom: 0cm; line-height: 150%">
 		<font face="Arial, sans-serif"><b>DECIS&Atilde;O ADMINISTRATIVA DE DEFESA PR&Eacute;VIA</b></font></p>
-<p class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%"><a name="_GoBack"></a>
+    </p>
+    <p class="western" align="justify" style="margin-bottom: 0cm; line-height: 150%"><a name="_GoBack"></a>
 	<font face="Arial, sans-serif">Processo: </font><font face="Arial, sans-serif"><b><?php echo $processo; ?></b></font><br>
 	<font face="Arial, sans-serif">Requerente: </font><font face="Arial, sans-serif"><b><?php echo strtoupper(utf8_decode($requerente)); ?></b></font><br>
 	<font face="Arial, sans-serif">N&deg; do Auto da Infra&ccedil;&atilde;o: </font><font face="Arial, sans-serif"><b><?php echo $autos; ?></b></font><br>
 	<font face="Arial, sans-serif">Assunto: </font><font face="Arial, sans-serif"><b>Defesa de autua&ccedil;&atilde;o</b></font><br>
 	<font face="Arial, sans-serif">Penalidade: </font><font face="Arial, sans-serif"><b><?php echo ucfirst(strtolower(utf8_decode($penalidade))); ?></b></font>
 </p>
+</div>
+
 
 <p class="western" align="justify" style="margin-bottom: 0.28cm; line-height: 150%">
 <font face="Arial, sans-serif"><u><b>DA QUALIFICA&Ccedil;&Atilde;O:</b></u></font></p>
 <p class="western" align="justify" style="margin-bottom: 0.28cm; line-height: 150%">
 <font face="Arial, sans-serif">	Infra&ccedil;&atilde;o capitulada no
-<?php echo $artigo; ?>, do C&oacute;digo de Tr&acirc;nsito Brasileiro
+<?php echo $artigo_final; ?>, do C&oacute;digo de Tr&acirc;nsito Brasileiro
 consoante materializado no </font><font face="Arial, sans-serif"><b>AUTO
 DE INFRA&Ccedil;&Atilde;O N&ordm; <?php echo $autos; ?>, </b></font><font face="Arial, sans-serif">constatado
 pelo agente de tr&acirc;nsito, enquanto condutor do ve&iacute;culo
@@ -186,12 +185,13 @@ ob_get_clean();
 require_once("vendor/autoload.php");
 //require ("http://localhost/defesaprevia/vendor/autoload.php");
 
-$mpdf = new mPDF();
+//$mpdf = new mPDF('utf-8', 'A4',12,'MS Serif',5,5,5,5);
+$mpdf = new mPDF('utf-8');
 date_default_timezone_set('America/Sao_Paulo');
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->useOnlyCoreFonts = true;
 
-$mpdf->SetWatermarkImage('assets/images/brasao6.png', 1, '', array(5,10));
+$mpdf->SetWatermarkImage('assets/images/brasao6.png', 1, '', array(4,4));
 $mpdf->showWatermarkImage = true;
 $mpdf->allow_charset_conversion = true;
 $mpdf->charset_in = 'UTF-8';

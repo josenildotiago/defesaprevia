@@ -29,7 +29,7 @@ $lista = $u->getAll2();
             <td><?php echo strtoupper($item['autos']); ?></td>
             <td><?php echo strtoupper($item['uf']); ?></td>
             <td><?php echo strtoupper($item['data_entrada']); ?></td>
-            <td><a class="btn btn-primary btn-sm" href="http://localhost/defesaprevia/gerar.php?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a></td>
+            <td><a class="btn btn-primary btn-sm" href="<?php echo BASE_URL; ?>arquivo?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
