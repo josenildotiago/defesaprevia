@@ -31,6 +31,7 @@ $penalidade = end($penalidade);
 //exit;
 if (strlen($penalidade) > 200) {
     $penalidade = substr($penalidade,0,200);
+    $penalidade = $penalidade."...";
 }
 $contar_artigo = explode(" ", $artigo);
 
