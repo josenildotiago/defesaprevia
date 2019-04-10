@@ -22,16 +22,13 @@ $sql->execute();
     if($sql->rowCount() > 0) {
         $dado = $sql->fetchAll();
     ?>
-    <?php $i = 1; ?>
     <?php foreach($dado as $dados): ?>
 <div>
-        <p id="pegardiv-<?php echo $i; ?>" class="ou" ><?php echo $dados['descricao']; ?></p>
+        <p><?php echo $dados['descricao']; ?></p>
         <div>
             <button onclick="pegarDiv()" aria-id="pegardiv-<?php echo $i; ?>" id="pegardiv-<?php echo $i; ?>" class="pegar btn btn-primary">Pegar</button>
         </div>
         <hr>
-<?php $i++;
-?>
     <?php endforeach; ?>
             <form action="http://localhost/defesaprevia/views/modal/inserir.php" method="post">
                 <div class="">
