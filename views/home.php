@@ -8,7 +8,7 @@
     <?php
     $id = $_SESSION['login'];
     $a = new Contatos();
-    $logado = $a->get($id);
+    $logado = $a->getPegarLogado($id);
     $log = $logado['nome'];
     $log = explode(" ", $log);
     ?>

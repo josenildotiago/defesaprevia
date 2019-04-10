@@ -40,6 +40,21 @@ class Contatos extends model {
 		return $array;
 	}
 
+	public function getPegarLogado($id) {
+		$array = array();
+
+		$sql = "SELECT * FROM login_defesaprevia WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id', $id);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetch();
+		}
+
+		return $array;
+	}
+
 	public function get2($id) {
 		$array = array();
 
@@ -150,7 +165,7 @@ class Contatos extends model {
 	}
 
 	public function login($email, $senha){
-        $sql = $this->db->prepare("SELECT id FROM usuarios WHERE email = :email AND senha = :senha");
+        $sql = $this->db->prepare("SELECT id FROM login_defesaprevia WHERE email = :email AND senha = :senha");
 		$sql->bindValue(":email", $email);
 		$sql->bindValue(":senha", md5($senha));
 		$sql->execute();
