@@ -5,6 +5,7 @@ $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/defesaprevia/");
 	define("__INCLUDES_NAV__", "includes/nav.php");
+	define("__INCLUDES_NAV_DEF__", "includes/nav_def.php");
 	$host = "localhost";
 	$user = "root";
 	$pass = "";

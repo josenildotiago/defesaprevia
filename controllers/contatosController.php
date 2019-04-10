@@ -18,9 +18,15 @@ class contatosController extends controller {
 			$email = $_POST['email'];
 			$senha = $_POST['senha'];
 
-            $contatos = new Contatos();
+			$contatos = new Contatos();
+			
             if ($contatos->login($email, $senha)) {
-                header("Location: ".BASE_URL);
+				if (isset($_SESSION['login'])) {
+					header("Location: ".BASE_URL);
+				}elseif (isset($_SESSION['painel'])) {
+					header("Location: ".BASE_URL."deferidor");
+				}
+                //header("Location: ".BASE_URL);
             } else {
                 header("Location: ".BASE_URL."login");
                 echo "aqui no primeiro else";

@@ -6,6 +6,8 @@ class homeController extends controller {
 		//$this->loadTemplate('home', $dados);
 		if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
 			$this->loadTemplate('home', $dados);
+		} elseif (isset($_SESSION['painel']) && !empty($_SESSION['painel'])) {
+			$this->loadTemplate('deferidor', $dados);
 		} else {
 			$this->loadTemplate('login', $dados);
 		}
