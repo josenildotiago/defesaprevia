@@ -85,7 +85,7 @@ ob_start();
 		p { margin-bottom: 0.25cm; direction: ltr; line-height: 115%; text-align: left; orphans: 2; widows: 2; background: transparent }
 	</style>
 </head>
-<body lang="pt-BR" link="#000080" vlink="#800000" dir="ltr">
+<body lang="pt-BR" link="#000080" vlink="#800000" dir="ltr"><br>
     <p align="center" style="margin-left: 0.5cm; margin-bottom: 0cm; line-height: 100%">
         <font face="Arial, serif">
             <font size="6" style="font-size: 24pt">
@@ -188,12 +188,12 @@ require_once("vendor/autoload.php");
 //require ("http://localhost/defesaprevia/vendor/autoload.php");
 
 //$mpdf = new mPDF('utf-8', 'A4',12,'MS Serif',5,5,5,5);
-$mpdf = new mPDF('utf-8');
+$mpdf = new mPDF('utf-8', 'A4',10,'Arial',0,0,0,0);
 date_default_timezone_set('America/Sao_Paulo');
 $mpdf->SetDisplayMode('fullpage');
 $mpdf->useOnlyCoreFonts = true;
 
-$mpdf->SetWatermarkImage('assets/images/brasao6.png', 1, '', array(4,4));
+$mpdf->SetWatermarkImage('assets/images/brasao6.png', 1, '', array(4,12));
 $mpdf->showWatermarkImage = true;
 $mpdf->allow_charset_conversion = true;
 $mpdf->charset_in = 'UTF-8';

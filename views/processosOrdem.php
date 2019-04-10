@@ -1,4 +1,4 @@
-Buscar Todos os Processos Por Ordem
+<?php include (__INCLUDES_NAV__); ?>
 <?php
 $u = new Contatos();
 $lista = $u->getAll2();

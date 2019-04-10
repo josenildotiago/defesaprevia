@@ -1,6 +1,7 @@
+<?php include (__INCLUDES_NAV__); ?>
 <div class="container">
 <?php if(isset($_SESSION['msg'])){ echo $_SESSION['msg']; unset($_SESSION['msg']); } ?>
-    <p>&nbsp;</p>
+<br>
     <div class="page-header">
         <h3>Cadastrando Registros</h3>
     </div>
