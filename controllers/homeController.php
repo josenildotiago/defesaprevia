@@ -17,7 +17,7 @@ class homeController extends controller {
 		if (isset($_POST['requerente'])) {
 			$id = $_SESSION['login'];
 			$a = new Contatos();
-			$logado = $a->get($id);
+			$logado = $a->getPegarLogado($id);
 
 			$requerente = addslashes($_POST['requerente']);
 			$processo = addslashes($_POST['processo']);

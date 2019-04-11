@@ -40,6 +40,21 @@ class Contatos extends model {
 		return $array;
 	}
 
+	public function get3($logado) {
+		$array = array();
+
+		$sql = "SELECT * FROM defesaprevia WHERE operador = :logado";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':logado', $logado);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetchAll();
+		}
+
+		return $array;
+	}
+
 	public function getPegarLogado($id) {
 		$array = array();
 
@@ -102,6 +117,27 @@ class Contatos extends model {
 
 			return true;
 		} else {
+			return false;
+		}
+	}
+
+	public function addLogin($nome, $email, $senha, $usuario, $tipo) {
+		if($this->emailExists2($email) == false) {
+			//$sql = "INSERT INTO contatos (nome, email) VALUES (:nome, :email)";
+			$sql = "INSERT INTO login_defesaprevia SET nome = :nome, email = :email, 
+                                    senha = :senha, usuario = :usuario, 
+                                    tipo = :tipo";
+			$sql = $this->db->prepare($sql);
+			$sql->bindValue(':nome', $nome);
+			$sql->bindValue(':email', $email);
+			$sql->bindValue(':senha', md5($senha));
+			$sql->bindValue(':usuario', $usuario);
+			$sql->bindValue(':tipo', $tipo);
+			$sql->execute();
+
+			return true;
+		} else {
+
 			return false;
 		}
 	}
@@ -169,6 +205,19 @@ class Contatos extends model {
 
 	private function emailExists($email) {
 		$sql = "SELECT * FROM contatos WHERE email = :email";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':email', $email);
+		$sql->execute();
+
+		if($sql->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	private function emailExists2($email) {
+		$sql = "SELECT * FROM login_defesaprevia WHERE email = :email";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(':email', $email);
 		$sql->execute();

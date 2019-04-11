@@ -9,8 +9,8 @@
     $id = $_SESSION['login'];
     $a = new Contatos();
     $logado = $a->getPegarLogado($id);
-    $log = $logado['nome'];
-    $log = explode(" ", $log);
+    $logado = $logado['nome'];
+    $operador = $logado;
     ?>
     <form action="<?php echo BASE_URL; ?>home/add_save" method="POST" >
         <div class="form-row">
@@ -89,7 +89,7 @@
             <!-- CAMPO OPERADOR -->
             <div class="form-group col-md-3">
                 <label for="operador">Operador</label>
-                <input type="text" class="form-control" value="<?php echo $log[0]; ?>" name="operador" id="operador" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
+                <input type="text" class="form-control" value="<?php echo $logado; ?>" name="operador" id="operador" size="100" maxlength="100" placeholder="Operador" style="text-transform: uppercase" value="Operador" readonly="readonly" />
             </div>
             <!-- CAMPO AUTOS -->
             <div class="form-group col-md">
@@ -152,8 +152,9 @@
     </div>
     <hr>
 <?php
-$u = new Contatos();
-$lista = $u->getAll();
+$abc = new Contatos();
+$lista = $abc->get3($operador);
+
 ?>
 <div class="container-fluid" >
     <table class="table table-bordered table-dark">

@@ -1,3 +1,8 @@
+<?php
+$id = $_SESSION['login'];
+$a = new Contatos();
+$nome = $a->getPegarLogado($id);
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-none">
     <div class="container">
         <a class="navbar-brand" href="<?php echo BASE_URL; ?>">Defesa Prévia</a>
@@ -10,6 +15,9 @@
                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>processosOrdem"><i class="fas fa-list-ol"></i> Listar Todos Processos Por Ordem</a>
                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarNome"><i class="fas fa-address-card"></i> Buscar Por Nome</a>
                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarProcesso"><i class="fas fa-folder-plus"></i> Buscar Por Processo</a>
+                    <?php if ($nome['nome'] === "JOSENILDO TIAGO DA SILVA"): ?>
+                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>criarLogin"><i class="fas fa-sign-in-alt"></i> Criar login</a>
+                    <?php endif; ?>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>">Voltar</a>
