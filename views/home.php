@@ -61,15 +61,15 @@
                     <option value="TO">TO</option>
                 </select>
             </div>
+            <!-- CAMPO CODIGO INFRAÇÃO -->
+            <div class="form-group col-md-1">
+                <label for="codigoinfra">Cod.</label>
+                <input type="text" onblur="pegarPorJson2()" class="form-control" name="cod_infra" id="codigoinfra" size="7" maxlength="14" required placeholder="000-0" style="text-transform: uppercase" >
+            </div>
             <!-- CAMPO ARTIGO -->
             <div class="form-group col-md">
                 <label for="artigo">Artigo</label>
                 <input type="text" onblur="pegarPorJson()" class="form-control" name="artigo" id="artigo" required placeholder="Art. 195" maxlength="20" style="text-transform: uppercase" />
-            </div>
-            <!-- CAMPO CODIGO INFRAÇÃO -->
-            <div class="form-group col-md-1">
-                <label for="codigoinfra">Cod.</label>
-                <input type="text" class="form-control" name="cod_infra" id="codigoinfra" size="7" maxlength="14" required placeholder="000-0" style="text-transform: uppercase" >
             </div>
             <!-- CAMPO MODELO VEICULO -->
             <div class="form-group col-md-5">

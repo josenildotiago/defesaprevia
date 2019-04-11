@@ -109,6 +109,17 @@ function pegar(){
         }
     });
 }
+function pegar2(){
+    var cod_infra = $("input[name=cod_infra]").val();
+    $.ajax({
+        url:'http://localhost/defesaprevia/views/modal/pegar_desd.php',
+        type:'POST',
+        data:{cod_infra:cod_infra},
+        success:function(html){
+            $('#penalidade').val(html);
+        }
+    });
+}
 
 //PELO JSON
 function pegarPorJson(){
@@ -127,6 +138,26 @@ function pegarPorJson(){
         },
         error:function(){
             $('#penalidade').val('Nenhuma infração encontrada para esse artigo '+artigo);
+        }
+    });
+}
+
+function pegarPorJson2(){
+    var cod_infra = $("input[name=cod_infra]").val();
+    $.ajax({
+        url:'http://localhost/defesaprevia/views/modal/pegar_desd.php',
+        type:'POST',
+        data:{cod_infra:cod_infra},
+        dataType: 'json',
+        success:function(dado){
+            console.log(dado);
+            
+            $('#artigo').val(dado['artigo']);
+            $('#penalidade').val(dado['decricao']);
+            $('#penalidade').attr('rows','3');
+        },
+        error:function(){
+            $('#penalidade').val('Nenhuma infração encontrada para esse artigo '+cod_infra);
         }
     });
 }
