@@ -1,24 +1,22 @@
 <?php
-class homeController extends controller {
+class editarController extends controller {
 
 	public function index() {
 		$dados = array();
-		//$this->loadTemplate('home', $dados);
+		//$this->loadTemplate('buscarNome', $dados);
 		if (isset($_SESSION['login']) && !empty($_SESSION['login'])) {
-			$this->loadTemplate('home', $dados);
-		} elseif (isset($_SESSION['painel']) && !empty($_SESSION['painel'])) {
-			$this->loadTemplate('deferidor', $dados);
+			$this->loadTemplate('editar', $dados);
 		} else {
 			$this->loadTemplate('login', $dados);
 		}
-		
 	}
-	public function add_save() {
+	public function editarProcesso(){
 		if (isset($_POST['requerente'])) {
-			$id = $_SESSION['login'];
+			$id_user = $_SESSION['login'];
 			$a = new Contatos();
-			$logado = $a->getPegarLogado($id);
+			$logado = $a->getPegarLogado($id_user);
 
+			$id = addslashes($_POST['id']);
 			$requerente = addslashes($_POST['requerente']);
 			$processo = addslashes($_POST['processo']);
 			$penalidade = addslashes($_POST['penalidade']);
@@ -35,22 +33,12 @@ class homeController extends controller {
 			$decisao = addslashes($_POST['decisao']);
 			$estatos = addslashes($_POST['estatos']);
 			$operador = $logado['cpf'];
-
+			$alterado_por = $logado['cpf'];
 			$contatos = new Contatos();
-			if($contatos->addDefesa($requerente, $processo, $penalidade, $autos, $artigo, $cod_infra, $veiculo_modelo, 
-			$placa,$uf, $cor, $ano_fab, $dos_fatos, $dos_meritos, $decisao, $estatos, $operador)) {
-				$_SESSION['msg'] = "<div class='alert alert-success text-center' role='alert'>Adicionado com sucesso!(homeController)
-				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-				<span aria-hidden='true'>&times;</span>
-				</button>
-				</div>";
+			if($contatos->editarDefesa($id, $requerente, $processo, $penalidade, $autos, $artigo, $cod_infra, $veiculo_modelo, 
+			$placa,$uf, $cor, $ano_fab, $dos_fatos, $dos_meritos, $decisao, $estatos, $operador, $alterado_por)) {
 				header("Location: ".BASE_URL);
 			} else {
-				$_SESSION['msg'] = "<div class='alert alert-danger text-center' role='alert'>Não foi possivel inserir! (homeController)
-				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-				<span aria-hidden='true'>&times;</span>
-				</button>
-				</div>";
 				header("Location: ".BASE_URL);
 			}
 		} else {
@@ -61,6 +49,5 @@ class homeController extends controller {
 				</div>";
 			header("Location: ".BASE_URL);
 		}
-		//header("Location: ".BASE_URL);
 	}
 }

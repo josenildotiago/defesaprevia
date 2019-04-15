@@ -8,9 +8,9 @@
     <?php
     $id = $_SESSION['login'];
     $a = new Contatos();
-    $logado = $a->getPegarLogado($id);
-    $logado = $logado['nome'];
-    $operador = $logado;
+    $l = $a->getPegarLogado($id);
+    $logado = $l['nome'];
+    $operador = $l['cpf'];
     ?>
     <form action="<?php echo BASE_URL; ?>home/add_save" method="POST" >
         <div class="form-row">
@@ -153,7 +153,7 @@
     <hr>
 <?php
 $abc = new Contatos();
-$lista = $abc->get3($operador);
+$lista = $abc->getAllProcessos($operador);
 
 ?>
 <div class="container-fluid" >
@@ -173,17 +173,24 @@ $lista = $abc->get3($operador);
         </thead>
         <tbody>
             <tr>
-            <?php foreach($lista as $item): ?>
-            <td scope="row"><?php echo strtoupper($item['requerente']); ?></td>
-            <td><?php echo strtoupper($item['placa']); ?></td>
-            <td><?php echo strtoupper($item['veiculo_modelo']); ?></td>
-            <td><?php echo strtoupper($item['estatos']); ?></td>
-            <td><?php echo strtoupper($item['processo']); ?></td>
-            <td><?php echo strtoupper($item['autos']); ?></td>
-            <td><?php echo strtoupper($item['uf']); ?></td>
-            <td><?php echo strtoupper($item['data_entrada']); ?></td>
-            <!-- <td><a class="btn btn-primary btn-sm" href="http://localhost/defesaprevia/gerar.php?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a></td> -->
-            <td><a class="btn btn-primary btn-sm" href="<?php echo BASE_URL; ?>arquivo?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a></td>
+                <?php foreach($lista as $item): ?>
+                <?php
+                $data = $item['data_entrada'];
+                $data = date('d/m/Y H:i:s', strtotime($data));
+                ?>
+                <td scope="row"><?php echo strtoupper($item['requerente']); ?></td>
+                <td><?php echo strtoupper($item['placa']); ?></td>
+                <td><?php echo strtoupper($item['veiculo_modelo']); ?></td>
+                <td><?php echo strtoupper($item['estatos']); ?></td>
+                <td><?php echo strtoupper($item['processo']); ?></td>
+                <td><?php echo strtoupper($item['autos']); ?></td>
+                <td><?php echo strtoupper($item['uf']); ?></td>
+                <td><?php echo strtoupper($data); ?></td>
+                <!-- <td><a class="btn btn-primary btn-sm" href="http://localhost/defesaprevia/gerar.php?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a></td> -->
+                <td>
+                <a class="btn btn-primary btn-sm" href="<?php echo BASE_URL; ?>arquivo?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a>
+                <a class="btn btn-primary btn-sm" href="<?php echo BASE_URL; ?>editar?id=<?php echo $item['id']; ?>" role="button">Editar.</a>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

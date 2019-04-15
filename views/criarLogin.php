@@ -5,6 +5,8 @@
                 <h2 class="text-center">Cadastro Usuários</h2><br>
                 <label for="nome">Nome</label>
                 <input class="form-control" type="text" name="nome" required placeholder="Dígite seu nome e sobrenome" >
+                <label for="nome">CPF</label>
+                <input class="form-control" type="text" name="cpf" id="cpf" required placeholder="Dígite seu CPF" >
                 <label for="email">E-mail</label>
                 <input class="form-control" type="text" name="email" required placeholder="Dígite seu email" >
                 <label for="senha">Senha</label>
