@@ -37,7 +37,7 @@ $sql->execute();
                 </div>
                 <div>
                     <input type="hidden" name="artigo_id" value="<?php echo $artigo; ?>">
-                    <input type="submit" value="Inserir" class="btn btn-primary" />
+                    <input type="submit" value="Inserir" name="inserir" disabled="false" id="inserir" class="inserir btn btn-primary" />
                 </div>
             </form>
         </div>

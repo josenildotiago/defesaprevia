@@ -16,6 +16,7 @@ $lista = $u->getAll2();
             <th scope="col">UF</th>
             <th scope="col">DATA CADASTRO</th>
             <th scope="col">OPERADOR</th>
+            <th scope="col">ARTIGO</th>
             <th scope="col">AÇÕES</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@ $lista = $u->getAll2();
             <td><?php echo strtoupper($item['uf']); ?></td>
             <td><?php echo strtoupper($item['data_entrada']); ?></td>
             <td><?php echo strtoupper($item['operador']); ?></td>
+            <td><?php echo strtoupper($item['artigo']); ?></td>
             <td><a class="btn btn-primary btn-sm" href="<?php echo BASE_URL; ?>arquivo?id=<?php echo $item['id']; ?>" role="button" target="_blank">Gerar Doc.</a></td>
             </tr>
             <?php endforeach; ?>
