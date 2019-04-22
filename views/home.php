@@ -68,7 +68,7 @@
             </div>
             <!-- CAMPO ARTIGO -->
             <div class="form-group col-md">
-                <label for="artigo">Artigo</label>
+                <label for="artigo">Artigo teste</label>
                 <input type="text" onblur="pegarPorJson()" class="form-control" name="artigo" id="artigo" required placeholder="Art. 195" maxlength="20" style="text-transform: uppercase" />
             </div>
             <!-- CAMPO MODELO VEICULO -->
