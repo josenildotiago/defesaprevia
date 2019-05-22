@@ -15,6 +15,9 @@
     <body>
         <?php $this->loadViewInTemplate($viewName, $viewData); ?>
         <?php $data_ano = date("Y"); ?>
+        <script type="text/javascript">
+            var BASE_URL = '<?php echo BASE_URL; ?>';
+        </script>
         <p class="text-center mt-5 mb-3 text-muted">&copy;SESEM <?php echo $data_ano; ?></p>
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootstrap.bundle.min.js"></script>

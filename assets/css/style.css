@@ -192,3 +192,55 @@ h2.active {
 #operador{
 	text-align: center;
 }
+.tooltip-main {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	font-weight: 700;
+	background: #2FA4E7;
+	border: 1px solid #737373;
+	color: #000000;
+	margin: 4px 2px 0 5px;
+	float: right;
+	text-align: center !important;
+}
+
+.tooltip-qm {
+	float: left;
+	margin: -2px 0px 3px 4px;
+	font-size: 12px;
+}
+
+.tooltip-inner {
+	max-width: 100px !important;
+	height: 30px;
+	font-size: 15px;
+	padding: 1px 5px 1px 5px;
+	background: #2FA4E7;
+	border: 2px solid #2FA4E7;
+	text-align: center;
+}
+
+.tooltip.show {
+	opacity: 1;
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+	border-bottom-color: rgb(148, 64, 64);
+  /* Red */
+}
+
+.frletra{
+	color: #757575;
+}
+.cabeca{
+	color: #ffffff;
+}
+.trocar1{
+	color: #ff0000;
+}
+
+.trocar2{
+	color: #02c412;
+}

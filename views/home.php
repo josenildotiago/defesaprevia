@@ -157,8 +157,8 @@ $lista = $abc->getAllProcessos($operador);
 
 ?>
 <div class="container-fluid" >
-    <table class="table table-bordered table-dark">
-        <thead>
+    <table class="table table-bordered">
+        <thead class="table-dark" >
             <tr>
             <th scope="col">REQUERENTE</th>
             <th scope="col">PLACA</th>
@@ -181,7 +181,11 @@ $lista = $abc->getAllProcessos($operador);
                 <td scope="row"><?php echo strtoupper($item['requerente']); ?></td>
                 <td><?php echo strtoupper($item['placa']); ?></td>
                 <td><?php echo strtoupper($item['veiculo_modelo']); ?></td>
-                <td><?php echo strtoupper($item['estatos']); ?></td>
+                <?php if($item['estatos'] == "INDEFERIDO"): ?>
+                    <td class="trocar1"><?php echo strtoupper($item['estatos']); ?></td>
+                <?php else: ?>
+                    <td class="trocar2"><?php echo strtoupper($item['estatos']); ?></td>
+                <?php endif; ?>
                 <td><?php echo strtoupper($item['processo']); ?></td>
                 <td><?php echo strtoupper($item['autos']); ?></td>
                 <td><?php echo strtoupper($item['uf']); ?></td>

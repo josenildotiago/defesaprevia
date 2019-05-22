@@ -79,6 +79,34 @@ function editar() {
 	})
 }
 
+function editar4(id) {
+	//$('#modal').modal('show');
+	artigo = id;
+
+	$.ajax({
+		url: BASE_URL + 'modal2',
+		type: 'POST',
+		data: { artigo: artigo },
+		beforeSend: function () {
+			$('#modal')
+				.find('.modal-body')
+				.html('carregando...')
+			$('#modal').modal('show')
+			//$('input[name=inserir]')[0].disabled = true;
+		},
+		success: function (html) {
+			$('#modal')
+				.find('.modal-body')
+				.html(html)
+			$('#modal').modal('show')
+		}
+	})
+}
+
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip()
+})
+
 //MODAL 1
 function editar2() {
 	//$('#modal').modal('show');
@@ -87,7 +115,8 @@ function editar2() {
 		artigo = 'Nenhum artigo selecionado.'
 	}
 	$.ajax({
-		url: 'http://localhost/defesaprevia/views/modal/do_merito.php',
+		//url: 'http://localhost/defesaprevia/viephpws/modal/do_merito.',
+		url: BASE_URL + 'modal',
 		type: 'POST',
 		data: { artigo: artigo },
 		beforeSend: function () {

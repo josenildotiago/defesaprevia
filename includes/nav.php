@@ -15,6 +15,7 @@ $nome = $a->getPegarLogado($id);
                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>processosOrdem"><i class="fas fa-list-ol"></i> Listar Todos Processos Por Ordem</a>
                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarNome"><i class="fas fa-address-card"></i> Buscar Por Nome</a>
                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>buscarProcesso"><i class="fas fa-folder-plus"></i> Buscar Por Processo</a>
+                    <a class="dropdown-item" href="<?php echo BASE_URL; ?>mensagem"><i class="fas fa-folder-plus"></i> Mensagem</a>
                     <?php if ($nome['cpf'] === "034.714.074-21"): ?>
                     <a class="dropdown-item" href="<?php echo BASE_URL; ?>criarLogin"><i class="fas fa-sign-in-alt"></i> Criar login</a>
                     <?php endif; ?>
