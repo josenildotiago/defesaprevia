@@ -82,7 +82,6 @@ function editar() {
 function editar4(id) {
 	//$('#modal').modal('show');
 	artigo = id;
-
 	$.ajax({
 		url: BASE_URL + 'modal2',
 		type: 'POST',
@@ -218,4 +217,10 @@ function pegarDiv() {
 		$('#modal').modal('hide')
 		$('#fato').attr('rows', '3')
 	})
+}
+
+function mudarOrdem() {
+	$('.data_ordem').on('click', function () {
+		var clic = 'ASC';
+	});
 }

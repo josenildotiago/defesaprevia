@@ -6,7 +6,7 @@ class Contatos extends model
 	{
 		$array = array();
 
-		$sql = "SELECT * FROM defesaprevia ORDER BY id DESC LIMIT 5";
+		$sql = "SELECT * FROM defesaprevia ORDER BY data_entrada DESC";
 		$sql = $this->db->query($sql);
 
 		if ($sql->rowCount() > 0) {
@@ -14,12 +14,56 @@ class Contatos extends model
 		}
 		return $array;
 	}
-
-	public function getAllMensagem($id_user)
+	public function mudarOrdem()
 	{
+		if (isset($_GET['ordem'])) {
+			$_SESSION['frase'] = $_GET['ordem'];
+		} else {
+			$_SESSION['frase'] = "ASC";
+		}
+		$var = $_SESSION['frase'];
 		$array = array();
 
-		$sql = "SELECT justificativa FROM defesa_previa_msg_modal WHERE id_user = :id_user ORDER BY id DESC";
+		$sql = "SELECT * FROM defesaprevia ORDER BY data_entrada $var";
+		$sql = $this->db->query($sql);
+
+		if ($sql->rowCount() > 0) {
+			$array = $sql->fetchAll();
+		}
+		return $array;
+	}
+	public function mudarOrdemNome($nomequalquer)
+	{
+		$nome = addslashes($nomequalquer);
+		$array = array();
+
+		$sql = "SELECT * FROM defesaprevia WHERE requerente LIKE '%$nome%'";
+		$sql = $this->db->query($sql);
+
+		if ($sql->rowCount() > 0) {
+			$array = $sql->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $array;
+	}
+
+	public function mudarOrdemProcesso($processoqualquer)
+	{
+		$processo = addslashes($processoqualquer);
+		$array = array();
+
+		$sql = "SELECT * FROM defesaprevia WHERE processo LIKE '%$processo%'";
+		$sql = $this->db->query($sql);
+
+		if ($sql->rowCount() > 0) {
+			$array = $sql->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $array;
+	}
+
+	public function getAllMensagem($id_user){
+		$array = array();
+
+		$sql = "SELECT * FROM defesa_previa_msg_modal WHERE id_user = :id_user ORDER BY id DESC LIMIT 20";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(':id_user', $id_user);
 		$sql->execute();
@@ -28,11 +72,23 @@ class Contatos extends model
 			$array = $sql->fetchAll(PDO::FETCH_ASSOC);
 		}
 
-		return $array;;
+		return $array;
 	}
 
-	public function getAllDefesaModalPorPessoa($id_user)
-	{
+	public function inserirResposta($id, $messagem){
+		$sql = "INSERT INTO defesa_previa_msg_modal SET id_user = :id_user, resposta = :resposta, hora = NOW()";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id_user', $id);
+		$sql->bindValue(':resposta', $messagem);
+		$sql->execute();
+		if ($sql->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getAllDefesaModalPorPessoa($id_user){
 		$array = array();
 
 		$sql = "SELECT * FROM defesa_previa_msg_modal WHERE id_user = :id_user ORDER BY id DESC";
@@ -41,7 +97,7 @@ class Contatos extends model
 		$sql->execute();
 
 		if ($sql->rowCount() > 0) {
-			$array = $sql->fetchAll(PDO::FETCH_ASSOC);
+			$array = $sql->fetch(PDO::FETCH_ASSOC);
 		}
 
 		return $array;;
@@ -239,9 +295,8 @@ class Contatos extends model
 		}
 	}
 
-	public function addModal($justificativa, $id)
-	{
-		$sql = "INSERT INTO defesa_previa_msg_modal SET justificativa = :justificativa, id_user = :id_user";
+	public function addModal($justificativa, $id){
+		$sql = "INSERT INTO defesa_previa_msg_modal SET justificativa = :justificativa, id_user = :id_user, hora = NOW()";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(':justificativa', $justificativa);
 		$sql->bindValue(':id_user', $id);

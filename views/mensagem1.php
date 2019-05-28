@@ -1,11 +1,14 @@
 <?php include(__INCLUDES_NAV_DEF__); ?>
 <?php
-    $page = BASE_URL."mensagem";
+    /* $page = BASE_URL."mensagem";
     $sec = "10";
-    header("Refresh: $sec; url=$page");
+    header("Refresh: $sec; url=$page"); */
 ?>
 <h3 class="container" >Mensagens</h3>
-<?php if (isset($_SESSION['msg'])) { echo $_SESSION['msg']; unset($_SESSION['msg']); } ?>
+<?php if (isset($_SESSION['msg'])) {
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+} ?>
 <?php
 if (isset($_SESSION['login'])) : ?>
     <?php
@@ -15,6 +18,7 @@ if (isset($_SESSION['login'])) : ?>
     $listas = $a->getAllDefesaModalPorPessoa($id_user);
     $listha = $d->getAllMensagem($id_user);
     ?>
+    <?php //foreach ($listas as $items) : ?>
         <div class="container rolagem">
                 <?php foreach ($listha as $items2) : ?>
                 <?php
@@ -55,6 +59,48 @@ if (isset($_SESSION['login'])) : ?>
                 </form>
             </div>
         <?php else: ?>
+
         <?php endif; ?>
         <hr>
+    <?php //endforeach; ?>
+<?php endif; ?>
+
+
+<?php if (isset($_SESSION['painel'])) : ?>
+    <?php
+    $contato = new Contatos();
+    $cpflogado = new Contatos();
+    $lista = $contato->getAllDefesaModal();
+
+    ?>
+    <?php foreach ($lista as $item) : ?>
+        <?php $a = new Contatos(); ?>
+        <div class="container">
+            <div>
+                <label for="id">ID</label><br>
+                <label for=""><?php echo $item['id_user']; ?></label>
+                <?php
+                $b = $a->getPegarLogado($item['id_user']);
+
+                $nome = $b['nome'];
+                //$c = $cpflogado->getDeferidor2($cpf);
+                ?>
+            </div>
+            <div>
+                <label for="id">Julgador</label><br>
+                <label for=""><?php echo $nome;  ?></label>
+            </div>
+            <div>
+                <label for="id">Mensagem</label><br>
+                <label for=""><?php echo $item['justificativa']; ?></label>
+            </div>
+            <div>
+                <label for="id">Resposta</label><br>
+                <label for=""><?php echo $item['resposta']; ?></label>
+            </div>
+            <textarea name="" id="" cols="30" rows="1"><?php echo $item['id_user']; ?></textarea><button class="btn btn-success" type="submit">Enviar</button>
+
+        </div>
+        <hr>
+    <?php endforeach; ?>
 <?php endif; ?>

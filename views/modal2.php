@@ -1,19 +1,19 @@
 <?php
-    $id = addslashes($_POST['artigo']);
-    $a = new Contatos();
-    $ab = $a->get($id);
-    $cpf = $ab['operador'];
-    //print_r($cpf);
-    //exit;
-    $b = new Contatos();
-    $b = $b->getNome($cpf);
-    print_r($b['nome']);
-    //exit;
+$id = addslashes($_POST['artigo']);
+$a = new Contatos();
+$ab = $a->get($id);
+$cpf = $ab['operador'];
+//print_r($cpf);
+//exit;
+$b = new Contatos();
+$b = $b->getNome($cpf);
+print_r($b['nome']);
+//exit;
 
 
 ?>
 <form action="deferidor/addModal" method="post">
-    <div class="" >
+    <div class="">
         <label for="justificativa">Justificativa</label>
         <textarea class="form-control" name="justificativa" id="justificativa" cols="30" rows="10"></textarea>
     </div><br>

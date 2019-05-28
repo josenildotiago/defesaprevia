@@ -32,7 +32,7 @@
             <!-- CAMPO UF -->
             <div class="form-group col-md-1">
                 <label for="uf">UF</label>
-                <select class="custom-select" name="uf" id="uf" style="text-transform: uppercase">
+                <select class="selecao_option" name="uf" id="uf" style="text-transform: uppercase">
                     <option value="RN">RN</option>
                     <option value="AL">AL</option>
                     <option value="AP">AP</option>
@@ -102,16 +102,17 @@
                 <textarea name="penalidade" id="penalidade" onfocus="aoClicarOb4()" onblur="aoSairOb4()" class="form-control" name="penalidade" rows="1" data-length="120" placeholder="Artigo 169" style="text-transform: uppercase" ></textarea>
             </div>
             <!-- CAMPO DOS FATOS -->
-            <div class="form-row col-md-12">
+            <div class="form-row col">
                 <label for="fato">Dos Fatos</label>
                 <textarea id="fato" onfocus="aoClicarOb2()" onblur="aoSairOb2()" class="form-control" name="dos_fatos" rows="1" data-length="120" placeholder="Dos fatos" style="text-transform: uppercase" ></textarea>
-                <a href="javascript:;" onclick="editar()" class="btn-sm btn-outline-success">Buscar Padrões</a>
+                <a href="javascript:;" onclick="editar()" class="btn-sm btn-success2">Buscar Padrões</a>
             </div>
+            
             <!-- CAMPO DO MERITO -->
             <div class="form-group col-md-12">
                 <label for="merito">Dos Mérito</label>
                 <textarea id="merito" onfocus="aoClicarOb3()" onblur="aoSairOb3()" class="form-control" name="dos_meritos" rows="1" data-length="120" placeholder="Do Mérito" style="text-transform: uppercase" ></textarea>
-                <a href="javascript:;" onclick="editar2()" class="btn-sm btn-outline-success">Buscar Padrões</a>
+                <a href="javascript:;" onclick="editar2()" class="btn-sm btn-success2">Buscar Padrões</a>
             </div>
             <!-- CAMPO DO DECISÃO -->
             <div class="form-group col-md-12">
@@ -144,13 +145,7 @@
             </div>
         </div>
     </div>
-    <div class="progress">
-        <div class="bar" style="width: 60%;"></div>
-    </div>
-    <div class="progress">
-        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <hr>
+    <div class="progresso"></div>
 <?php
 $abc = new Contatos();
 $lista = $abc->getAllProcessos($operador);

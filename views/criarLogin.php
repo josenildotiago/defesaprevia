@@ -14,7 +14,7 @@
                 <label for="usuario">Usuário</label>
                 <input class="form-control" type="text" name="usuario" required placeholder="Dígite seu usuario" >
                 <label for="tipo">Tipo Usuários</label>
-                <select required class="custom-select" name="tipo" id="tipo" >
+                <select required class="selecao_option" name="tipo" id="tipo" >
                     <option value="0">Padrão</option>
                     <option value="1">Administrador</option>
                 </select>
