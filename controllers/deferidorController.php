@@ -27,7 +27,7 @@ class deferidorController extends controller {
 				<span aria-hidden='true'>&times;</span>
 				</button>
 				</div>";
-				header("Location: ". BASE_URL."mensagem");
+				header("Location: ". BASE_URL."mensagem_def");
 				exit;
 			}else {
 				$_SESSION['msg'] = "<div class='alert alert-danger text-center' role='alert'>Não foi possivel enviar a mensagem

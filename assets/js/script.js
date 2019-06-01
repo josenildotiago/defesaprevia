@@ -1,6 +1,8 @@
 function aoClicarOb() {
 	$('#auto').attr('rows', '3')
 }
+var timerI = null;
+var timerR = false;
 
 function aoClicarOb2() {
 	$('#fato').attr('rows', '3')
@@ -38,7 +40,9 @@ function aoSairOb5() {
 	$('#decisao').attr('rows', '1')
 }
 
-$(document).ready(function () { })
+$(document).ready(function () {
+	comeca();
+})
 
 //MASCARAS
 $(function () {
@@ -223,4 +227,28 @@ function mudarOrdem() {
 	$('.data_ordem').on('click', function () {
 		var clic = 'ASC';
 	});
+}
+//
+function para() {
+	if (timerR)
+		clearTimeout(timerI);
+	timerR = false;
+}
+
+function comeca() {
+	para();
+	lista();
+}
+
+function lista() {
+	$.ajax({
+		url: BASE_URL + "ajax",
+		type: 'POST',
+		data: { nome: 'eu' },
+		success: function (textStatus) {
+			$("#listadada").html(textStatus); //Mostra o resultado da página lista.php
+		}
+	})
+	timerI = setTimeout("lista()", 4000); //Tempo de espera para atualizar novamente
+	timerR = true;
 }

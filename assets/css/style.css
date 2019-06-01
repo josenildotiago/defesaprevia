@@ -307,7 +307,7 @@ h2.active {
 }
 .rolagem{
 	overflow:scroll;
-	height:400px;
+	height:350px;
 	width:100%;
 	overflow:auto
 }
@@ -333,4 +333,7 @@ h2.active {
 	border: 1px solid #ced4da;
 	border-radius: 0.25rem;
 	appearance: none;
+}
+.texto-msg{
+	text-align: center;
 }
