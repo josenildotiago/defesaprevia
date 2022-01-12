@@ -1,7 +1,7 @@
 <?php
 	$host = "localhost";
 	$usuario = "root";
-	$senha = "";
+	$senha = "1234";
 	$banco = "getranmc_cadastro_estacionamento";
 
 	//Iniciando a conexão
@@ -9,7 +9,7 @@
 	mysql_select_db($banco, $conecta);
 
 	if(!$conecta){
-		echo "Erro ao conectar ao banco de dados!";
+		echo "Erro ao conectar ao banco de dados! teste";
 	}
 
 	//Outras configs

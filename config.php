@@ -8,7 +8,7 @@ if(ENVIRONMENT == 'development') {
 	define("__INCLUDES_NAV_DEF__", "includes/nav_def.php");
 	$host = "localhost";
 	$user = "root";
-	$pass = "";
+	$pass = "1234";
 	$db = "getranmc_cadastro_estacionamento";
 	$dsn = "mysql:host={$host};dbname={$db}";
 	$options = array(

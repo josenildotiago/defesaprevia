@@ -22,7 +22,6 @@ class ComposerStaticInit42075c872e85004be457b758c2ce543e
         'M' => 
         array (
             'Mpdf\\' => 5,
-            'Monolog\\' => 8,
         ),
         'D' => 
         array (
@@ -43,14 +42,14 @@ class ComposerStaticInit42075c872e85004be457b758c2ce543e
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
-        'Monolog\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
-        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -58,6 +57,7 @@ class ComposerStaticInit42075c872e85004be457b758c2ce543e
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit42075c872e85004be457b758c2ce543e::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit42075c872e85004be457b758c2ce543e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit42075c872e85004be457b758c2ce543e::$classMap;
 
         }, null, ClassLoader::class);
     }

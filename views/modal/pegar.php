@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = "1234";
 $db = "getranmc_cadastro_estacionamento";
 $dsn = "mysql:host={$host};dbname={$db}";
 $options = array(
